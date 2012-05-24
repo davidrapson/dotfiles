@@ -1,0 +1,100 @@
+set nocompatible                  " Must come first because it changes other options.
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Pathogen
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call pathogen#infect()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+syntax enable                     " Turn on syntax highlighting.
+filetype plugin indent on         " Turn on file type detection.
+
+set autoread                      " Set to auto read when a file is changed from the outside
+
+let mapleader = ","               " map <leader> key to ,
+let g:mapleader = ","             " and again
+
+nmap <leader>w :w!<cr>            " Fast saving
+
+" Map the ,ev and ,sv keys to edit/reload .vimrc
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+nnoremap <esc> :noh<return><esc>  " Cancel search highlight on `ESC`
+" Map F5 to trim trailing whitespace
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+set showcmd                       " Display incomplete commands.
+set showmode                      " Display the mode you're in.
+
+set backspace=indent,eol,start    " Intuitive backspacing.
+
+set hidden                        " Handle multiple buffers better.
+
+set wildmenu                      " Enhanced command line completion.
+set wildmode=list:longest         " Complete files like a shell.
+
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
+
+set incsearch                     " Highlight matches as you type.
+set hlsearch                      " Highlight matches.
+
+set nobackup                      " Don't make a backup before overwriting a file.
+set nowritebackup                 " And again.
+set directory^=$HOME/.vim/tmp/    " put all swap files together in one place
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Visual
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set title                         " Set the terminal's title
+set cmdheight=2                   "The commandbar height
+
+set wrap                          " Turn on line wrapping.
+set scrolloff=3                   " Show 3 lines of context around the cursor.
+
+set number                        " Show line numbers.
+set ruler                         " Show cursor position.
+set cursorline                    " Higlight current line
+set cursorcolumn                  " Highlight current column
+set list listchars=tab:»·,trail:· " Display extra whitespace
+
+set visualbell                    " No beeping.
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Tabs vs. Spaces
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set tabstop=2                     " Global tab width.
+set shiftwidth=2                  " And again, related.
+set expandtab                     " Use spaces instead of tabs
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Themes and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set gfn=Meslo\ LG\ M\ DZ:h12      " Set font family and size
+
+colorscheme solarized             " Use Solarized theme
+"set background=dark               " Dark colour scheme
+set background=light             " Light colour scheme
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Easier Split Navigation
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nmap <silent> <C-D> :NERDTreeToggle<CR>  " Map NERDTree file browser to Ctrl + D in Normal Mode

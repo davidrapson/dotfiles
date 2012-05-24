@@ -1,0 +1,84 @@
+# ~/.zshrc
+
+#######################################
+# Oh My ZSH
+#######################################
+
+# Path to your oh-my-zsh configuration.
+export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+export ZSH_THEME="davidrapson"
+
+# Set to this to use case-sensitive completion
+# export CASE_SENSITIVE="true"
+
+# Comment this out to disable weekly auto-update checks
+# export DISABLE_AUTO_UPDATE="true"
+
+# Uncomment following line if you want to disable colors in ls
+# export DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# export DISABLE_AUTO_TITLE="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+plugins=(rbenv brew bundler git osx)
+
+# Load oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
+#######################################
+# Custom
+#######################################
+
+# Use 256 colours
+TERM=xterm-256color
+
+# Homebrew & rbenv enhanced path
+PATH="$HOME/Developer/bin:$HOME/Developer/sbin:$HOME/Developer/scripts:$HOME/Developer/scripts/private:$HOME/.rbenv/bin:$PATH"; export PATH
+
+# For node, so modules are picked up
+NODE_PATH="$HOME/Developer/lib/node_modules"; export NODE_PATH
+
+# Custom man pages path
+MANPATH="$HOME/Developer/share/man:$MANPATH"; export MANPATH
+
+# Make Vim the default editor
+# EDITOR="/usr/bin/vim"; export EDITOR
+
+# Make TextMate the default editor
+# EDITOR="$HOME/Developer/bin/mate -w"; export EDITOR
+
+# Make Sublime the default editor
+EDITOR="$HOME/Developer/bin/subl -w"; export EDITOR
+
+# Always use vim when editing crontab
+VISUAL=vim; export VISUAL
+
+# Helps with builds
+CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"; export CONFIGURE_ARGS
+
+#######################################
+# Eval
+#######################################
+
+eval "$(rbenv init -)"
+
+# fasd, only init if installed.
+if [[ -f $HOME/.fasd ]]; then
+  # Initialize fasd (https://github.com/clvv/fasd)
+  eval "$(fasd --init posix-alias zsh-hook)"
+fi
+
+#######################################
+# Shhhh!
+#######################################
+
+# Put secret configuration settings in ~/.secrets
+if [[ -a ~/.secrets ]] then
+  source ~/.secrets
+fi

@@ -1,0 +1,1 @@
+for file (~/.oh-my-zsh/custom/functions/*.zsh) source $file

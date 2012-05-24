@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Project
+# =======
+create()
+{
+  mkdir -p _from-client Media/Images Media/Logos Documents
+  touch README.txt
+}
+
+usage()
+{
+  cat << __EOT
+
+  Project
+
+  Usage:
+    project.sh <name>
+    Where <name> is the name you'd like to use for the project, e.g., Bacon
+    For multi-word project names simply wrap <name> in quotes, e.g., "Chunky Bacon"
+
+  Project Structure:
+    <name>
+    - _from-client
+    - Media
+      - Images
+      - Logos
+    - Documents
+    - README.txt
+
+__EOT
+  exit 1
+}
+
+
+if [ -z "$1" ] || [ "$1" == "--help" ] && [ -z "$2"]; then
+  usage
+else
+  if [ -d "$1" ]; then
+    echo "Directory already exists"
+    cd "$1"
+    create
+    echo "Project \""$1"\" succesfully created"
+  else
+    mkdir "$1"
+    cd "$1"
+    create
+    echo "Project \""$1"\" succesfully created"
+ fi
+fi
