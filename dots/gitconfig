@@ -49,3 +49,6 @@
   cmd          = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [diff]
   tool         = Kaleidoscope
+[user]
+	name = David Rapson
+	email = david@davidrapson.co.uk
