@@ -794,6 +794,7 @@ fi
 if [ ! -e "${DOC_ROOT_PREFIX}/${FOLDER}/index.html" -a ! -e "${DOC_ROOT_PREFIX}/${FOLDER}/index.php" ]; then
 
   cat << __EOF >"${DOC_ROOT_PREFIX}/${FOLDER}/index.html"
+<!doctype html>
 <html>
 <head>
 <title>Welcome to $VIRTUALHOST</title>
@@ -893,3 +894,4 @@ __EOF
 /bin/echo -n "Launching virtualhost... "
 open_command "http://$VIRTUALHOST:$APACHE_PORT/"
 /bin/echo "done"
+exit 1
