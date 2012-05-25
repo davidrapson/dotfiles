@@ -19,14 +19,30 @@ def header(message)
   puts "***************************************************\n\n"
 end
 
-def make_symlink( file, prefix )
+def sync_file( file, prefix, options = {} )
+
+  options[:dry_run] ||= false
+  options[:copy] ||= false
 
   path   = File.join(File.dirname(__FILE__), file)
   name   = File.basename(file)
   target = File.expand_path("#{prefix}#{name}")
 
-  rm_rf target if File.exists?(target)
-  ln_s path, target
+  if options[:copy]
+    if !options[:dry_run]
+      rm_rf target if File.exists?(target)
+      cp_r path, target, { :preserve => true }
+    else
+      puts "Will copy #{path} => #{target}"
+    end
+  else
+    if !options[:dry_run]
+      rm_rf target if File.exists?(target)
+      ln_s path, target
+    else
+      puts "Will symlink #{path} => #{target}"
+    end
+  end
 
 end
 
@@ -38,7 +54,7 @@ task :dots do
 
   header "Copying dotfiles..."
   dots.each do |file|
-    make_symlink file, "~/."
+    sync_file file, "~/."
   end
 
 end
@@ -49,9 +65,9 @@ end
 
 task :scripts do
 
-  header "Symlinking script files..."
+  header "Copying script files..."
   scripts.each do |file|
-    make_symlink file, "~/Developer/scripts/"
+    sync_file file, "~/Developer/scripts/", { :copy => true }
   end
 
 end
@@ -65,13 +81,13 @@ namespace :zsh do
 
   task :custom do
     header "Symlinking zsh custom directory..."
-    make_symlink zsh_custom, "~/.oh-my-zsh/"
+    sync_file zsh_custom, "~/.oh-my-zsh/"
   end
 
   task :themes do
     header "Symlinking zsh theme files..."
     zsh_themes.each do |file|
-      make_symlink file, "~/.oh-my-zsh/themes/"
+      sync_file file, "~/.oh-my-zsh/themes/"
     end
   end
 
