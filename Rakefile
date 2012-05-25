@@ -10,43 +10,6 @@ zsh_themes = Dir["zsh/themes/*"]
 zsh_custom = "zsh/custom"
 
 
-# Helpers
-# ===============================================
-
-def header(message)
-  puts "\n***************************************************\n"
-  puts "* #{message}"
-  puts "***************************************************\n\n"
-end
-
-def sync_file( file, prefix, options = {} )
-
-  options[:dry_run] ||= false
-  options[:copy] ||= false
-
-  path   = File.join(File.dirname(__FILE__), file)
-  name   = File.basename(file)
-  target = File.expand_path("#{prefix}#{name}")
-
-  if options[:copy]
-    if !options[:dry_run]
-      rm_rf target if File.exists?(target)
-      cp_r path, target, { :preserve => true }
-    else
-      puts "Will copy #{path} => #{target}"
-    end
-  else
-    if !options[:dry_run]
-      rm_rf target if File.exists?(target)
-      ln_s path, target
-    else
-      puts "Will symlink #{path} => #{target}"
-    end
-  end
-
-end
-
-
 # Dotfiles
 # ===============================================
 
@@ -99,4 +62,45 @@ end
 
 task :default => [ :dots, :scripts, :zsh ] do
   puts "\nAll Done."
+end
+
+
+# Helpers
+# ===============================================
+
+def header(message)
+  puts "\n***************************************************\n"
+  puts "* #{message}"
+  puts "***************************************************\n\n"
+end
+
+def sync_file( file, prefix, options = {} )
+
+  options[:dry_run] ||= false
+  options[:copy]    ||= false
+
+  path   = File.join(File.dirname(__FILE__), file)
+  name   = File.basename(file)
+  target = File.expand_path("#{prefix}#{name}")
+
+  if options[:copy]
+
+    if !options[:dry_run]
+      rm_rf target if File.exists?(target)
+      cp_r path, target, { :preserve => true }
+    else
+      puts "Will copy #{path} => #{target}"
+    end
+
+  else
+
+    if !options[:dry_run]
+      rm_rf target if File.exists?(target)
+      ln_s path, target
+    else
+      puts "Will symlink #{path} => #{target}"
+    end
+
+  end
+
 end
