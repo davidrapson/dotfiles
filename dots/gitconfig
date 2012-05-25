@@ -5,9 +5,13 @@
   cob          = checkout -b
   history      = log --patch
   ir           = !git rebase -i origin/masteri
-  l            = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+  ll           = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+  l            = !git --no-pager ll
   last         = log -1 HEAD --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
-  lol          = log --pretty=oneline --abbrev-commit --graph --decorate
+  loll         = log --pretty=oneline --abbrev-commit --graph --decorate
+  lol          = !git --no-pager loll
+  lolal        = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  lola         = !git --no-pager lolal
   patch        = add --patch
   s            = status
   staged       = diff --cached
