@@ -15,3 +15,10 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
   alias "$method"="lwp-request -m '$method'"
 done
+
+# Toggle remote login on OS X
+alias rup='systemsetup -setremotelogin on'
+alias rdown='systemsetup -setremotelogin off'
+
+# All users processes, only executable name, custom output, show processes with no controlling terminal
+alias ps='ps -a -c -o pid,command -x'
