@@ -20,7 +20,7 @@
   unstage      = reset HEAD --
   unstaged     = diff
   up           = !git fetch origin && git rebase origin/master
-  wft          = !"git-wtf"
+  wtf          = !"git-wtf"
 [apply]
   whitespace   = fix
 [color]

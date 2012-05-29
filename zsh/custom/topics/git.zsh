@@ -21,10 +21,13 @@ fi
 # and the `omglog` gem
 # `gem install omglog` & `rbenv rehash`
 
+alias gh='git browse'
 alias gm='git smart-merge'
 alias gmr='git merge --ff-only'
-alias gup='git smart-pull'
 alias gomg='omglog'
+alias gp='git add --patch'
+alias gs='git status --branch --short'
+alias gup='git smart-pull'
 
 alias gitbox='open -a /Applications/Gitbox.app .'
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
