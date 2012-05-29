@@ -1,5 +1,6 @@
 [alias]
   a            = add
+  ammend       = commit --amend -C HEAD
   ap           = add --patch
   c            = commit -m
   cob          = checkout -b
@@ -15,9 +16,11 @@
   patch        = add --patch
   s            = status
   staged       = diff --cached
+  undo         = reset --soft HEAD^
   unstage      = reset HEAD --
   unstaged     = diff
   up           = !git fetch origin && git rebase origin/master
+  wft          = !"git-wtf"
 [apply]
   whitespace   = fix
 [color]
