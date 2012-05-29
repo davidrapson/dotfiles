@@ -18,3 +18,18 @@ alias gm='git smart-merge'
 alias gmr='git merge --ff-only'
 alias gup='git smart-pull'
 alias gomg='omglog'
+
+
+export GIT_SANDBOX=~/.code/sandbox
+
+# Wrap git with hub
+hub_path=$(which hub)
+if [[ -f $hub_path ]]
+then
+  alias git=$hub_path
+fi
+
+# sandbox user/repo
+function sandbox() {
+  cd $GIT_SANDBOX && git clone $1 && cd `last_modified`
+}

@@ -1,1 +1,0 @@
-for file (~/.oh-my-zsh/custom/aliases/*.zsh) source $file
