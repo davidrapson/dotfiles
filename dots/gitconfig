@@ -44,7 +44,7 @@
   autocrlf     = input
   editor       = vim
   excludesfile = ~/.gitignore_global
-	quotepath = false
+  quotepath    = false
   whitespace   = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [difftool]
   prompt       = false
@@ -53,5 +53,5 @@
 [diff]
   tool         = Kaleidoscope
 [user]
-	name = David Rapson
-	email = david@davidrapson.co.uk
+  name         = David Rapson
+  email        = david@davidrapson.co.uk
