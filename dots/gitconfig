@@ -1,11 +1,11 @@
 [alias]
   a            = add
-  ammend       = commit --amend -C HEAD
+  amend        = commit --amend -c HEAD
   ap           = add --patch
   c            = commit -m
   cob          = checkout -b
   history      = log --patch
-  ir           = !git rebase -i origin/masteri
+  ir           = !git rebase -i origin/master
   ll           = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
   l            = !git --no-pager ll
   last         = log -1 HEAD --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
@@ -44,7 +44,7 @@
   autocrlf     = input
   editor       = vim
   excludesfile = ~/.gitignore_global
-  quotepath    = false
+	quotepath = false
   whitespace   = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [difftool]
   prompt       = false
