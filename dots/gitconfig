@@ -14,6 +14,7 @@
   lolal        = log --graph --decorate --pretty=oneline --abbrev-commit --all
   lola         = !git --no-pager lolal
   patch        = add --patch
+  p            = add --patch
   s            = status
   staged       = diff --cached
   undo         = reset --soft HEAD^
