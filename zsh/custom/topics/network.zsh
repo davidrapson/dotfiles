@@ -58,3 +58,11 @@ function digga() {
 function mx() {
   dig "$1" mx
 }
+
+# Helper function to show all domain info
+function domainme() {
+  echo "\nWhois\n============================================\n"
+  whois "$1"
+  echo "\nDig\n============================================\n"
+  digga "$1"
+}
