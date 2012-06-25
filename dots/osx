@@ -66,7 +66,7 @@ defaults write com.apple.finder QuitMenuItem -bool true
 defaults write com.apple.finder DisableAllAnimations -bool true
 
 # Show all filename extensions in Finder
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+# defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Show status bar in Finder
 defaults write com.apple.finder ShowStatusBar -bool true
@@ -110,10 +110,10 @@ chflags nohidden ~/Library
 
 # Hot corners
 # Top right screen corner → Desktop
-defaults write com.apple.dock wvous-tr-corner -int 4
-defaults write com.apple.dock wvous-tr-modifier -int 0
+# defaults write com.apple.dock wvous-tr-corner -int 4
+# defaults write com.apple.dock wvous-tr-modifier -int 0
 
-# Set the icon size of Dock items to 48 pixels
+# Set the icon size of Dock items (in px)
 defaults write com.apple.dock tilesize -int 48
 
 # Enable spring loading for all Dock items
@@ -166,6 +166,9 @@ defaults write com.apple.iTunes disablePing -bool true
 
 # Make ⌘ + F focus the search input in iTunes
 defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
+
+# Fix iTunes 10 traffic light buttons
+defaults write com.apple.iTunes full-window -1
 
 # Disable send and reply animations in Mail.app
 defaults write com.apple.Mail DisableReplyAnimations -bool true
