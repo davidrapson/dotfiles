@@ -1,6 +1,7 @@
 [alias]
   a            = add
   amend        = commit --amend -c HEAD
+  gzip         = !git archive HEAD | gzip > $PWD.tar.gz
   ap           = add --patch
   c            = commit -m
   cob          = checkout -b
