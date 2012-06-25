@@ -48,6 +48,7 @@ alias h="history"
 # lol
 alias wtf='whatis'
 alias rtfm='man'
+function sizeme() { ll | awk '{print $5}' | spark }
 
 # fasd
 if [[ -f $HOME/.fasd ]]; then
