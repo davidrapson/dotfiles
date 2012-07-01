@@ -51,7 +51,7 @@
   autocrlf     = input
   editor       = vim
   excludesfile = ~/.gitignore_global
-  quotepath    = false
+	quotepath = false
   whitespace   = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [difftool]
   prompt       = false
