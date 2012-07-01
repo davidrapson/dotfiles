@@ -10,17 +10,15 @@
 # These extend the default oh-my-zsh git plugin
 
 # Wrap git with hub
+# brew install hub
 hub_path=$(which hub)
 if [[ -f $hub_path ]]
 then
   alias git=$hub_path
 fi
 
-# Some of these git aliases use the `git-smart` gem
-# `gem install git-smart` & `rbenv rehash`
-# and the `omglog` gem
-# `gem install omglog` & `rbenv rehash`
-
+# Some of these git aliases use the `git-smart` and `omglog` gems
+# `gem install git-smart omglog` then `rbenv rehash`
 alias gh='git browse'
 alias gm='git smart-merge'
 alias gmr='git merge --ff-only'

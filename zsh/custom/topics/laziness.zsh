@@ -15,6 +15,7 @@ alias -- -="cd -"
 alias l='ls -ax'
 
 # See https://github.com/gf3/dotfiles/blob/master/.aliases#L6
+# brew install tree
 alias ll='tree --dirsfirst -ChFupDaLg 1'
 
 # -a  -- list entries starting with .
@@ -32,6 +33,7 @@ alias llm='ls -am'
 alias lll='ls -lhpA'
 
 # Tree shortcuts
+# brew install tree
 # -a All files are printed.
 #    By default tree does not print hidden files
 # -L Max display depth of the directory tree.
@@ -49,11 +51,9 @@ alias c='clear'
 alias o='open .'
 alias h="history"
 
-# lol
-alias wtf='whatis'
-alias rtfm='man'
 
 # fasd
+# brew install fasd
 if [[ -f $HOME/.fasd ]]; then
   # jump to recently used items
   alias a='fasd -a' # any
