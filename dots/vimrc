@@ -97,4 +97,6 @@ nmap <silent> <c-l> :wincmd l<CR>
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Open NERDTree automatically when vim starts up if no files were specified
+autocmd vimenter * if !argc() | NERDTree | endif
 nmap <silent> <C-D> :NERDTreeToggle<CR>  " Map NERDTree file browser to Ctrl + D in Normal Mode
