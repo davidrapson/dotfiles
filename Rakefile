@@ -60,10 +60,24 @@ end # :zsh
 # Git Submodules
 # ===============================================
 
-desc "Init and update submodules."
-task :submodules do
-  `git submodule update --init`
-end # :submodules
+
+task :submodules =>  [ "submodules:setup" ]
+
+namespace :submodules do
+
+  desc "Init and update submodules."
+  task :setup do
+    header "Git submodules"
+    `git submodule update --init`
+  end
+
+  desc "Upgrade all bundled plugins"
+  task :update do
+    `git submodule foreach git pull origin master`
+  end
+
+end # :zsh
+
 
 # Default Tasks
 # ===============================================
