@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+# Show how Git branches relate to your current branch.
+# https://gist.github.com/2322304
+
 def format_commit_info timestamp, time_desc, commit_id, message, ref_name
   [
     "#{timestamp.strftime("%y %b %d")}, #{timestamp.strftime("%l:%M%p").downcase}",
