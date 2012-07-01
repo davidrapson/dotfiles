@@ -68,6 +68,4 @@ fi
 # Functions
 # ---------
 
-function sizeme() {
-    ll | awk '{print $5}' | spark
-}
+

@@ -21,10 +21,6 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
   alias "$method"="lwp-request -m '$method'"
 done
 
-# Toggle remote login on OS X
-alias rup='systemsetup -setremotelogin on'
-alias rdown='systemsetup -setremotelogin off'
-
 # All users processes, only executable name, custom output, show processes with no controlling terminal
 alias ps='ps -a -c -o pid,command -x'
 
@@ -41,13 +37,13 @@ function network() {
 # Get local IP and copy it to the clipboard
 function localip() {
   ifconfig en1 | grep -oP 'inet \K(\d{1,3}\.){3}\d{1,3}' | tr -d '\n' | tee >(pbcopy)
-  echo '\nCopied to clipboard'
+  echo '\nLocal IP copied to the clipboard'
 }
 
 # Get public IP and copy it to the clipboard
 function publicip() {
   curl -s icanhazip.com | tr -d '\n' | tee >(pbcopy)
-  echo '\nCopied to clipboard'
+  echo '\Public IP copied to the clipboard'
 }
 
 # All the dig info
@@ -58,12 +54,4 @@ function digga() {
 # Just dig MX records
 function mx() {
   dig "$1" mx
-}
-
-# Helper function to show all domain info
-function domainme() {
-  echo "\nWhois\n============================================\n"
-  whois "$1"
-  echo "\nDig\n============================================\n"
-  digga "$1"
 }

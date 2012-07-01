@@ -26,8 +26,6 @@ alias gomg='omglog'
 alias gp='git add --patch'
 alias gs='git status --branch --short'
 alias gup='git smart-pull'
-
-alias gitbox='open -a /Applications/Gitbox.app .'
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
 

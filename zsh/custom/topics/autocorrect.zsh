@@ -4,4 +4,4 @@
 # Aliases
 # -------
 
-alias bm='nocorrect bm'
+# alias bm='nocorrect bm'
