@@ -1,6 +1,13 @@
 # Man Pages
 # =========
 
+# Aliases
+# -------
+
+
+# Functions
+# ---------
+
 # Open man page in Preview
 function pman() {
   man -t "${1}" | open -f -a Preview

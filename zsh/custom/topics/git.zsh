@@ -2,7 +2,7 @@
 # ===
 
 # Aliases
-# =======
+# -------
 
 # More Git aliases in ~/.gitconfig
 # Inspired by Thoughtbot
@@ -34,9 +34,9 @@ alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
 
 # Functions
-# =========
+# ---------
 
-# Sandbox user/repo
-function sandbox() {
+# Git Sandbox user/repo
+function git_sandbox() {
   cd ~/Developer/code/sandbox && git clone $1 && cd `last_modified`
 }

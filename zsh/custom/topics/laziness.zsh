@@ -1,6 +1,10 @@
 # Laziness
 # ========
 
+
+# Aliases
+# -------
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ~="cd ~" # `cd` is probably faster to type though
@@ -48,7 +52,6 @@ alias h="history"
 # lol
 alias wtf='whatis'
 alias rtfm='man'
-function sizeme() { ll | awk '{print $5}' | spark }
 
 # fasd
 if [[ -f $HOME/.fasd ]]; then
@@ -60,3 +63,11 @@ if [[ -f $HOME/.fasd ]]; then
   alias z='fasd_cd -d' # cd, same functionality as j in autojump
   alias v='f -e vim' # quick opening files with vim
 fi
+
+
+# Functions
+# ---------
+
+function sizeme() {
+    ll | awk '{print $5}' | spark
+}

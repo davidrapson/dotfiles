@@ -3,7 +3,7 @@
 
 
 # Aliases
-# =======
+# -------
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
@@ -29,10 +29,10 @@ alias ps='ps -a -c -o pid,command -x'
 
 
 # Functions
-# =========
+# ---------
 
 # Show both local and public IP addresses
-fuction network() {
+function network() {
   echo -e "Local  IP: $(ifconfig en1 | grep -oP 'inet \K(\d{1,3}\.){3}\d{1,3}')"
   echo -e "Public IP: $(curl -s icanhazip.com)";
 }

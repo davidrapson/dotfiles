@@ -3,7 +3,7 @@
 
 
 # Aliases
-# =======
+# -------
 
 alias reload='source ~/.zshrc'
 alias cproj="cd ~/Sites/projects/"
@@ -11,7 +11,7 @@ alias ccode="cd ~/Developer/code/"
 
 
 # Functions
-# =========
+# ---------
 
 # mkdir + cd = take
 function take() {
