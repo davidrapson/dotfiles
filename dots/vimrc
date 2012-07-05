@@ -23,7 +23,7 @@ nmap <leader>w :w!<cr>            " Fast saving
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-nnoremap <esc> :noh<return><esc>  " Cancel search highlight on `ESC`
+" nnoremap <esc> :noh<return><esc>  " Cancel search highlight on `ESC`
 " Map F5 to trim trailing whitespace
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
@@ -40,8 +40,8 @@ set wildmode=list:longest         " Complete files like a shell.
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
-set incsearch                     " Highlight matches as you type.
-set hlsearch                      " Highlight matches.
+"set incsearch                     " Highlight matches as you type.
+"set hlsearch                      " Highlight matches.
 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
@@ -52,7 +52,7 @@ set directory^=$HOME/.vim/tmp/    " put all swap files together in one place
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set title                         " Set the terminal's title
-set cmdheight=2                   "The commandbar height
+set cmdheight=2                   " The commandbar height
 
 set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
