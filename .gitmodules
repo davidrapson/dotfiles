@@ -7,3 +7,6 @@
 [submodule "dots/vim/bundle/vim-rooter"]
 	path = dots/vim/bundle/vim-rooter
 	url = git://github.com/airblade/vim-rooter.git
+[submodule "dots/vim/bundle/vim-indent-guides"]
+	path = dots/vim/bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
