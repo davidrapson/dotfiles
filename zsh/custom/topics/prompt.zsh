@@ -1,6 +1,8 @@
 # Prompt
 # ======
 
+# Aliases
+# -------
 
 # Functions
 # ---------

@@ -1,7 +1,6 @@
 # Laziness
 # ========
 
-
 # Aliases
 # -------
 
@@ -48,9 +47,8 @@ alias t2='tree -aL 2'
 alias tl='tree -aL'
 
 alias c='clear'
-alias o='open .'
 alias h="history"
-
+alias o='open .'
 
 # fasd
 # brew install fasd
@@ -64,8 +62,5 @@ if [[ -f $HOME/.fasd ]]; then
   alias v='f -e vim' # quick opening files with vim
 fi
 
-
 # Functions
 # ---------
-
-

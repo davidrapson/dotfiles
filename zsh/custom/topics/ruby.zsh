@@ -1,6 +1,9 @@
 # Ruby
 # ====
 
+# Aliases
+# -------
+
 # Rubygems
 alias gi='gem install'
 
@@ -10,3 +13,6 @@ alias be='bundle exec'
 # Compass
 alias cow='bundle exec compass watch'
 alias coc='bundle exec compass compile'
+
+# Functions
+# ---------
