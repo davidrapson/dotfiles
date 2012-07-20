@@ -1,7 +1,6 @@
 # Network
 # =======
 
-
 # Aliases
 # -------
 
@@ -23,7 +22,6 @@ done
 
 # All users processes, only executable name, custom output, show processes with no controlling terminal
 alias ps='ps -a -c -o pid,command -x'
-
 
 # Functions
 # ---------

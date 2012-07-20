@@ -1,6 +1,12 @@
 # Server
 # ======
 
+# Aliases
+# -------
+
+# Functions
+# ---------
+
 # Start up a local server for the current directory
 # Defaults to port 8000 but you can pass a port number as an argument
 # Automatically open a browser window for the local server
