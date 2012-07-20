@@ -4,7 +4,6 @@
 # Aliases
 # -------
 
-alias e="subl -n ."
 
 # Functions
 # ---------
