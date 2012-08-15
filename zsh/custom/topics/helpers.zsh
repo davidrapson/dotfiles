@@ -7,8 +7,8 @@
 alias edit="subl -n"
 
 alias reload='source ~/.zshrc'
-alias cproj="cd ~/Sites/projects/"
-alias ccode="cd ~/Developer/code/"
+alias cs='cd ~/Sites'
+alias ccode='cd ~/Developer/code/'
 
 alias ..='cd ..'
 alias ...='cd ../..'
