@@ -29,7 +29,7 @@
   # merge confict: keep merge file
   theirs       = checkout --theirs
 [apply]
-  whitespace   = fix
+  # whitespace   = fix
 [color]
   ui           = true
 [color "branch"]
@@ -52,10 +52,12 @@
   editor       = vim
   excludesfile = ~/.gitignore_global
 	quotepath = false
-  whitespace   = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  # whitespace   = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [difftool]
   prompt       = false
 [difftool "Kaleidoscope"]
   cmd          = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [diff]
   tool         = Kaleidoscope
+[user]
+	name = David Rapson
