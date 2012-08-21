@@ -17,6 +17,7 @@
   patch        = add --patch
   p            = add --patch
   s            = status
+  showfiles    = show --pretty="format:" --name-only
   staged       = diff --cached
   undo         = reset --soft HEAD^
   unstage      = reset HEAD --
