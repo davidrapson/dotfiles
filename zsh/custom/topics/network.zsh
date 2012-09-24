@@ -28,13 +28,13 @@ alias ps='ps -a -c -o pid,command -x'
 
 # Show both local and public IP addresses
 function network() {
-  echo -e "Local  IP: $(ifconfig en1 | grep -oP 'inet \K(\d{1,3}\.){3}\d{1,3}')"
+  echo -e "Local  IP: $(ifconfig en0 | grep inet | grep -v inet6 | cut -c 7-17)"
   echo -e "Public IP: $(curl -s icanhazip.com)";
 }
 
 # Get local IP and copy it to the clipboard
 function localip() {
-  ifconfig en1 | grep -oP 'inet \K(\d{1,3}\.){3}\d{1,3}' | tr -d '\n' | tee >(pbcopy)
+  ifconfig en0 | grep inet | grep -v inet6 | cut -c 7-17
   echo '\nLocal IP copied to the clipboard'
 }
 
