@@ -157,3 +157,8 @@ function fpath() {
 function cleanup() {
   find . -name '*.DS_Store' -type f -ls -delete
 }
+
+function fixperms() {
+  find . -type d -exec chmod 0755 {} \;
+  find . -type f -exec chmod 0644 {} \;
+}
