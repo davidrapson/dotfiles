@@ -24,6 +24,7 @@ alias gh='git browse'
 alias gl='git smart-log'
 alias gm='git smart-merge'
 alias gmr='git merge --ff-only'
+alias go='git_overview'
 alias gomg='omglog'
 alias gp='git add --patch'
 alias gs='git status --branch --short'
@@ -39,4 +40,21 @@ alias ungit="find . -name '.git' -exec rm -rf {} \;"
 # Git Sandbox user/repo
 function git_sandbox() {
   cd ~/Developer/code/sandbox && git clone $1 && cd `last_modified`
+}
+
+
+# Requires legit () and gbrt (https://gist.github.com/2322304)
+function git_overview() {
+
+  echo '\nBranch Status'
+  echo '=============================================\n'
+  legit branches
+
+  echo '\n'
+  gbrt
+
+  echo '\nLast Commit'
+  echo '=============================================\n'
+  git log -1 HEAD --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+
 }
