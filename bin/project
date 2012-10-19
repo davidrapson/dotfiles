@@ -4,7 +4,7 @@
 # =======
 create()
 {
-  mkdir -p _from-client Media/Images Media/Logos Documents
+  mkdir -p Supplied Media/Images Media/Logos Documents
   touch README.txt
 }
 
@@ -21,7 +21,7 @@ usage()
 
   Project Structure:
     <name>
-    - _from-client
+    - Supplied
     - Media
       - Images
       - Logos
