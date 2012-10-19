@@ -23,19 +23,6 @@ task :dotfiles do
 end
 
 
-# Scripts
-# ===============================================
-
-task :scripts do
-
-  header "Copying script files..."
-  scripts.each do |file|
-    sync_file file, "~/Developer/scripts/", { :copy => true }
-  end
-
-end # :scripts
-
-
 # Oh My ZSH
 # ===============================================
 
@@ -82,7 +69,7 @@ end # :zsh
 # Default Tasks
 # ===============================================
 
-task :default => [ :dotfiles, :scripts, :zsh, :submodules ] do
+task :default => [ :dotfiles, :zsh, :submodules ] do
   puts "\nAll Done."
 end # default
 
