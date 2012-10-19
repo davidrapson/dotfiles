@@ -127,8 +127,6 @@ if [[ -f $HOME/.fasd ]]; then
   alias d='fasd -d' # directory
   alias f='fasd -f' # file
   alias z='fasd_cd -d' # cd, same functionality as j in autojump
-  alias v='f -e vim' # quick opening files with vim
-  alias s='f -e subl' # quick opening files with Sublime Text 2
 fi
 
 
@@ -162,3 +160,10 @@ function fixperms() {
   find . -type d -exec chmod 0755 {} \;
   find . -type f -exec chmod 0644 {} \;
 }
+
+
+# Logging stuff.
+function e_header()   { echo -e "\n\033[1m$@\033[0m"; }
+function e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
+function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
+function e_arrow()    { echo -e " \033[1;33m➜\033[0m  $@"; }
