@@ -30,14 +30,14 @@
   # merge confict: keep merge file
   theirs       = checkout --theirs
   # http://www.git-legit.org/
-  switch       = !legit switch \"$@\"
-  branches     = !legit branches
-  sprout       = !legit sprout \"$@\"
-  unpublish    = !legit unpublish \"$@\"
-  harvest      = !legit harvest \"$@\"
-  sync         = !legit sync \"$@\"
-  publish      = !legit publish \"$@\"
-  graft        = !legit graft \"$@\"
+	switch = !legit switch \"$@\"
+	branches = !legit branches
+	sprout = !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest = !legit harvest \"$@\"
+	sync = !legit sync \"$@\"
+	publish = !legit publish \"$@\"
+	graft = !legit graft \"$@\"
 [apply]
   # whitespace   = fix
 [color]

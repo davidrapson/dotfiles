@@ -43,7 +43,7 @@ function git_sandbox() {
 }
 
 
-# Requires legit () and gbrt (https://gist.github.com/2322304)
+# Requires legit (brew install legit_ and gbrt (gbrt in bin/)
 function git_overview() {
 
   echo '\nBranch Status'

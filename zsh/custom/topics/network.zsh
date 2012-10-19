@@ -32,6 +32,10 @@ done
 # All users processes, only executable name, custom output, show processes with no controlling terminal
 alias ps='ps -a -c -o pid,command -x'
 
+# File size
+alias fs="stat -f '%z bytes'"
+alias df="df -h"
+
 # Functions
 # ---------
 
@@ -50,7 +54,7 @@ function localip() {
 
 # Get public IP and copy it to the clipboard
 function publicip() {
-  curl -s icanhazip.com | tr -d '\n' | tee >(pbcopy)
+  dig +short myip.opendns.com @resolver1.opendns.com
   echo '\nPublic IP copied to the clipboard'
 }
 

@@ -50,16 +50,12 @@ NODE_PATH="$HOME/Developer/lib/node_modules"; export NODE_PATH
 # Custom man pages path
 MANPATH="$HOME/Developer/share/man:$MANPATH"; export MANPATH
 
-# Make Vim the default editor
-# EDITOR="/usr/bin/vim"; export EDITOR
+# Set default editor
+export EDITOR='subl -w'
+export LESSEDIT='subl %f'
+alias q='subl'
 
-# Make TextMate the default editor
-# EDITOR="$HOME/Developer/bin/mate -w"; export EDITOR
-
-# Make Sublime the default editor
-EDITOR="$HOME/Developer/bin/subl -w"; export EDITOR
-
-# Always use vim when editing crontab
+# Always use vim as the visual editor
 VISUAL=vim; export VISUAL
 
 # Helps with builds

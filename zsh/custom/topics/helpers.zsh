@@ -80,9 +80,14 @@ alias -- -="cd -"
 # -x  -- sort horizontally
 alias l='ls -ax'
 
-# See https://github.com/gf3/dotfiles/blob/master/.aliases#L6
 # brew install tree
-alias ll='tree --dirsfirst -ChFupDaLg 1'
+if (( $+commands[tree] )) ; then
+  alias ll='tree --dirsfirst -ChFupDaLg 1'
+  alias lld='ll -d'
+else
+  alias ll='ls -al'
+  alias lld='CLICOLOR_FORCE=1 ll | grep --color=never "^d"'
+fi
 
 # -a  -- list entries starting with .
 # -1  -- single column output
@@ -98,25 +103,29 @@ alias llm='ls -am'
 # -A  -- list all except . and ..
 alias lll='ls -lhpA'
 
-# Tree shortcuts
-# brew install tree
-# -a All files are printed.
-#    By default tree does not print hidden files
-# -L Max display depth of the directory tree.
 
-# Laziness
-alias t='tree'
-# All files
-alias ta='tree -a'
-# All files limited to 2 levels deep
-alias t2='tree -aL 2'
-# All files limited to given depth
-alias tl='tree -aL'
+if (( $+commands[tree] )) ; then
+
+  # Tree shortcuts
+  # brew install tree
+  # -a All files are printed.
+  #    By default tree does not print hidden files
+  # -L Max display depth of the directory tree.
+
+  # Laziness
+  alias t='tree'
+  # All files
+  alias ta='tree -a'
+  # All files limited to 2 levels deep
+  alias t2='tree -aL 2'
+  # All files limited to given depth
+  alias tl='tree -aL'
+
+fi
 
 alias c='clear'
 alias o='open .'
 alias h="history"
-
 
 # fasd
 # brew install fasd
@@ -129,7 +138,8 @@ if [[ -f $HOME/.fasd ]]; then
   alias z='fasd_cd -d' # cd, same functionality as j in autojump
 fi
 
-
+# Aliasing eachdir like this allows you to use aliases/functions as commands.
+alias eachdir=". eachdir"
 
 # Functions
 # ---------
@@ -160,10 +170,3 @@ function fixperms() {
   find . -type d -exec chmod 0755 {} \;
   find . -type f -exec chmod 0644 {} \;
 }
-
-
-# Logging stuff.
-function e_header()   { echo -e "\n\033[1m$@\033[0m"; }
-function e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
-function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
-function e_arrow()    { echo -e " \033[1;33m➜\033[0m  $@"; }
