@@ -8,7 +8,16 @@
 alias whois="whois -h whois-servers.net"
 
 # Flush Directory Service cache
-alias flush="dscacheutil -flushcache"
+# alias flush=""
+
+OSXVERSION=$(sw_vers | grep ProductVersion | cut -c 17-20)
+function flush() {
+  if [[ OSXVERSION -eq '10.8' ]]; then
+    sudo killall -HUP mDNSResponder
+  else
+    dscacheutil -flushcache
+  fi
+}
 
 # View HTTP traffic
 # brew install ngrep
@@ -28,20 +37,21 @@ alias ps='ps -a -c -o pid,command -x'
 
 # Show both local and public IP addresses
 function network() {
-  echo -e "Local  IP: $(ifconfig en0 | grep inet | grep -v inet6 | cut -c 7-17)"
+  echo -e "Local  IP: $(ipconfig getifaddr en0)"
   echo -e "Public IP: $(curl -s icanhazip.com)";
 }
 
 # Get local IP and copy it to the clipboard
 function localip() {
-  ifconfig en0 | grep inet | grep -v inet6 | cut -c 7-17
+  # ifconfig en0 | grep inet | grep -v inet6 | cut -c 7-17
+  ipconfig getifaddr en0 | tr -d '\n' | tee >(pbcopy)
   echo '\nLocal IP copied to the clipboard'
 }
 
 # Get public IP and copy it to the clipboard
 function publicip() {
   curl -s icanhazip.com | tr -d '\n' | tee >(pbcopy)
-  echo '\Public IP copied to the clipboard'
+  echo '\nPublic IP copied to the clipboard'
 }
 
 # All the dig info
