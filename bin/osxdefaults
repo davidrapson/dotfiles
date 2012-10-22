@@ -1,4 +1,5 @@
-# ~/.osx — http://mths.be/osx
+#!/bin/bash
+# http://mths.be/osx & https://github.com/necolas/dotfiles/blob/master/bin/osxdefaults
 
 ###############################################################################
 # General UI/UX                                                               #
