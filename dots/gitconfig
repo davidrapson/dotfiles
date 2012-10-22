@@ -5,6 +5,7 @@
   ap           = add --patch
   c            = commit -m
   cob          = checkout -b
+  files        = show --pretty="format:" --name-only
   history      = log --patch
   ir           = !git rebase -i origin/master
   ll           = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
@@ -17,7 +18,6 @@
   patch        = add --patch
   p            = add --patch
   s            = status
-  showfiles    = show --pretty="format:" --name-only
   staged       = diff --cached
   undo         = reset --soft HEAD^
   unstage      = reset HEAD --
@@ -71,3 +71,5 @@
   tool         = Kaleidoscope
 [user]
 	name = David Rapson
+[credential]
+	helper = osxkeychain
