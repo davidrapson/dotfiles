@@ -7,18 +7,6 @@
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
 
-# Flush Directory Service cache
-# alias flush=""
-
-OSXVERSION=$(sw_vers | grep ProductVersion | cut -c 17-20)
-function flush() {
-  if [[ OSXVERSION -eq '10.8' ]]; then
-    sudo killall -HUP mDNSResponder
-  else
-    dscacheutil -flushcache
-  fi
-}
-
 # View HTTP traffic
 # brew install ngrep
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
@@ -36,26 +24,27 @@ alias ps='ps -a -c -o pid,command -x'
 alias fs="stat -f '%z bytes'"
 alias df="df -h"
 
+# Copy my public key to my clipboard
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '✔ Public key copied to clipboard.'"
+
 # Functions
 # ---------
 
 # Show both local and public IP addresses
 function network() {
-  echo -e "Local  IP: $(ipconfig getifaddr en0)"
+  echo -e " Local IP: $(ipconfig getifaddr en0)"
   echo -e "Public IP: $(curl -s icanhazip.com)";
 }
 
 # Get local IP and copy it to the clipboard
 function localip() {
   # ifconfig en0 | grep inet | grep -v inet6 | cut -c 7-17
-  ipconfig getifaddr en0 | tr -d '\n' | tee >(pbcopy)
-  echo '\nLocal IP copied to the clipboard'
+  ipconfig getifaddr en0 | tr -d '\n' | tee >(pbcopy) | echo '✔ Local IP copied to clipboard.'
 }
 
 # Get public IP and copy it to the clipboard
 function publicip() {
-  dig +short myip.opendns.com @resolver1.opendns.com
-  echo '\nPublic IP copied to the clipboard'
+  dig +short myip.opendns.com @resolver1.opendns.com | pbcopy| echo '✔ Public IP copied to clipboard.'
 }
 
 # All the dig info
@@ -66,4 +55,14 @@ function digga() {
 # Just dig MX records
 function mx() {
   dig "$1" mx
+}
+
+# Flush Directory Service cache
+OSXVERSION=$(sw_vers | grep ProductVersion | cut -c 17-20)
+function flush() {
+  if [[ OSXVERSION -eq '10.8' ]]; then
+    sudo killall -HUP mDNSResponder
+  else
+    dscacheutil -flushcache
+  fi
 }
