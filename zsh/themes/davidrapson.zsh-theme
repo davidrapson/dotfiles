@@ -1,3 +1,6 @@
+# Requires git_cdw_info (see bin/git_cdw_info)
+# https://github.com/benhoskings/dot-files/blob/master/files/bin/git_cwd_info
+
 prompt_char() {
     git branch >/dev/null 2>/dev/null && echo '±' && return
     hg root >/dev/null 2>/dev/null && echo '☿' && return
@@ -21,6 +24,5 @@ PROMPT='
 %{$fg_bold[cyan]%}%~%{$reset_color%} $(prompt_char)$(git_cwd_info)
 %F{cyan}❯%f '
 
-# Requires git_cdw_info (see bin/git_cdw_info)
-# https://github.com/benhoskings/dot-files/blob/master/files/bin/git_cwd_info
 # RPROMPT='$(prompt_char) $(git_cwd_info)%{$reset_color%}'
+RPROMPT='%F{magenta}$(rbenv_prompt_info)%f'
