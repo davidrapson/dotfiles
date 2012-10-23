@@ -42,8 +42,7 @@ function git_sandbox() {
   cd ~/Developer/code/sandbox && git clone $1 && cd `last_modified`
 }
 
-
-# Requires legit (brew install legit_ and gbrt (gbrt in bin/)
+# Requires legit (brew install legit) and gbrt (gbrt in bin/)
 function git_overview() {
 
   echo '\nBranch Status'

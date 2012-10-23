@@ -48,7 +48,7 @@ usage()
 
     wordpress --secret
 
-      Copies generate keys and salts from https://api.wordpress.org/secret-key/1.1/salt to clipboard
+      Copies generated keys and salts from https://api.wordpress.org/secret-key/1.1/salt to clipboard
 
 __EOT
   exit 1

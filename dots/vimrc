@@ -79,9 +79,11 @@ set expandtab                     " Use spaces instead of tabs
 
 set gfn=Meslo\ LG\ M\ DZ:h12      " Set font family and size
 
-colorscheme solarized             " Use Solarized theme
-"set background=dark               " Dark colour scheme
-set background=light             " Light colour scheme
+colorscheme Tomorrow-Night-Eighties
+
+"colorscheme solarized
+"set background=dark " Dark colour scheme
+"set background=light " Light colour scheme
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Easier Split Navigation
