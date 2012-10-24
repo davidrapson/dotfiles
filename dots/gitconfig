@@ -1,75 +1,77 @@
-[alias]
-  a            = add
-  amend        = commit --amend -c HEAD
-  gzip         = !git archive HEAD | gzip > $PWD.tar.gz
-  ap           = add --patch
-  c            = commit -m
-  cob          = checkout -b
-  files        = show --pretty="format:" --name-only
-  history      = log --patch
-  ir           = !git rebase -i origin/master
-  ll           = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
-  l            = !git --no-pager ll
-  last         = log -1 HEAD --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
-  loll         = log --pretty=oneline --abbrev-commit --graph --decorate
-  lol          = !git --no-pager loll
-  lolal        = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  lola         = !git --no-pager lolal
-  patch        = add --patch
-  p            = add --patch
-  s            = status
-  staged       = diff --cached
-  undo         = reset --soft HEAD^
-  unstage      = reset HEAD --
-  unstaged     = diff
-  up           = !git fetch origin && git rebase origin/master
-  wtf          = !"git-wtf"
-  # http://gitready.com/advanced/2009/02/25/keep-either-file-in-merge-conflicts.html
-  # merge confict: keep local file
-  ours         = checkout --ours
-  # merge confict: keep merge file
-  theirs       = checkout --theirs
-  # http://www.git-legit.org/
-	switch = !legit switch \"$@\"
-	branches = !legit branches
-	sprout = !legit sprout \"$@\"
-	unpublish = !legit unpublish \"$@\"
-	harvest = !legit harvest \"$@\"
-	sync = !legit sync \"$@\"
-	publish = !legit publish \"$@\"
-	graft = !legit graft \"$@\"
-[apply]
-  # whitespace   = fix
-[color]
-  ui           = true
-[color "branch"]
-  current      = yellow black
-  local        = yellow
-  remote       = magenta
-[color "diff"]
-  frag         = magenta bold
-  meta         = yellow bold
-  new          = green reverse
-  old          = red reverse
-  whitespace   = white reverse
-[color "status"]
-  added        = yellow
-  branch       = magenta
-  changed      = green
-  untracked    = cyan reverse
 [core]
-  autocrlf     = input
-  editor       = vim
-  excludesfile = ~/.gitignore_global
-	quotepath = false
-  # whitespace   = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    autocrlf = input
+    editor = vim
+    excludesfile = ~/.gitignore_global
+    quotepath = false
+    # whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[apply]
+    # Trim whitespace on commit
+    # whitespace = fix
+[alias]
+    a = add
+    amend = commit --amend -c HEAD
+    gzip = !git archive HEAD | gzip > $PWD.tar.gz
+    ap = add --patch
+    c = commit -m
+    cob = checkout -b
+    files = show --pretty="format:" --name-only
+    history = log --patch
+    ir = !git rebase -i origin/master
+    ll = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+    l = !git --no-pager ll
+    last = log -1 HEAD --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+    loll = log --pretty=oneline --abbrev-commit --graph --decorate
+    lol = !git --no-pager loll
+    lolal = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lola = !git --no-pager lolal
+    patch = add --patch
+    p = add --patch
+    s = status
+    showfiles = show --pretty="format:" --name-only
+    staged = diff --cached
+    undo = reset --soft HEAD^
+    unstage = reset HEAD --
+    unstaged = diff
+    up = !git fetch origin && git rebase origin/master
+    wtf = !"git-wtf"
+    # http://gitready.com/advanced/2009/02/25/keep-either-file-in-merge-conflicts.html
+    # merge confict: keep local file
+    ours = checkout --ours
+    # merge confict: keep merge file
+    theirs = checkout --theirs
+    # http://www.git-legit.org/
+    switch = !legit switch \"$@\"
+    branches = !legit branches
+    sprout = !legit sprout \"$@\"
+    unpublish = !legit unpublish \"$@\"
+    harvest = !legit harvest \"$@\"
+    sync = !legit sync \"$@\"
+    publish = !legit publish \"$@\"
+    graft = !legit graft \"$@\"
+[color]
+    ui = true
+    [color "branch"]
+    current = yellow black
+    local = yellow
+    remote = magenta
+    [color "diff"]
+    frag = magenta bold
+    meta = yellow bold
+    new = green reverse
+    old = red reverse
+    whitespace = white reverse
+[color "status"]
+    added = yellow
+    branch = magenta
+    changed = green
+    untracked = cyan reverse
 [difftool]
-  prompt       = false
+    prompt = false
 [difftool "Kaleidoscope"]
-  cmd          = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+    cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [diff]
-  tool         = Kaleidoscope
+    tool = Kaleidoscope
 [user]
-	name = David Rapson
+    name = David Rapson
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
