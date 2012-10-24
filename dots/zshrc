@@ -54,7 +54,6 @@ MANPATH="$HOME/Developer/share/man:$MANPATH"; export MANPATH
 # Set default editor
 export EDITOR='subl -w'
 export LESSEDIT='subl %f'
-alias q='subl'
 
 # Always use vim as the visual editor
 VISUAL=vim; export VISUAL
