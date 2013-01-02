@@ -52,8 +52,4 @@ function git_overview() {
   echo '\n'
   gbrt
 
-  echo '\nLast Commit'
-  echo '=============================================\n'
-  git log -1 HEAD --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
-
 }
