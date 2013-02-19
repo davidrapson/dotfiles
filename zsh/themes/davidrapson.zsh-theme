@@ -7,6 +7,17 @@ prompt_char() {
     # echo '○' # No repo
 }
 
+function ruby_version()
+{
+    if which rvm-prompt &> /dev/null; then
+      rvm-prompt i v g
+    else
+      if which rbenv &> /dev/null; then
+        rbenv version | sed -e "s/ (set.*$//"
+      fi
+    fi
+}
+
 # For my own and others sanity
 # git:
 # %b => current branch
@@ -25,4 +36,5 @@ PROMPT='
 %F{cyan}❯%f '
 
 # RPROMPT='$(prompt_char) $(git_cwd_info)%{$reset_color%}'
-RPROMPT='%F{magenta}$(rbenv_prompt_info)%f'
+# RPROMPT='%F{magenta}$(rbenv_prompt_info)%f'
+RPROMPT='%F{magenta}$(ruby_version)%f'
