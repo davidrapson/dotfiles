@@ -38,8 +38,11 @@ function network() {
 
 # Get local IP and copy it to the clipboard
 function localip() {
-  # ifconfig en0 | grep inet | grep -v inet6 | cut -c 7-17
-  ipconfig getifaddr en0 | tr -d '\n' | tee >(pbcopy) | echo '✔ Local IP copied to clipboard.'
+  if [[ OSXVERSION -eq '10.8' ]]; then
+    ipconfig getifaddr en0 | tr -d '\n' | tee >(pbcopy) | echo '✔ Local IP copied to clipboard.'
+  else
+    ifconfig en1 | grep inet | grep -v inet6 | cut -c 7-17
+  fi
 }
 
 # Get public IP and copy it to the clipboard
