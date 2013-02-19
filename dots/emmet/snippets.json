@@ -1,0 +1,16 @@
+{
+	"variables": {
+		"lang": "en",
+		"locale": "en-US",
+		"charset": "UTF-8",
+		"indentation": "\t",
+		"newline": "\n"
+	},
+
+	"css": {
+		"filters": "html",
+		"snippets": {
+			"@group": "/* @group ${1} */\n/* ----------------------------------------------------- */\n\n${2}\n\n/* @end ${1} */",
+		}
+	}
+}
