@@ -40,7 +40,7 @@ source $ZSH/oh-my-zsh.sh
 TERM=xterm-256color
 
 # Homebrew & rbenv enhanced path
-PATH="$HOME/Developer/bin:$HOME/Developer/sbin:$HOME/.rbenv/bin:$PATH"; export PATH
+PATH="$HOME/Developer/bin:$HOME/Developer/sbin:$HOME/Developer/share/npm/bin:$HOME/.rbenv/bin:$PATH"; export PATH
 
 # Add dotfile binaries into the path
 PATH=$HOME/.dotfiles/bin:$PATH; export PATH
@@ -60,6 +60,7 @@ VISUAL=vim; export VISUAL
 
 # Helps with builds
 CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"; export CONFIGURE_ARGS
+
 
 #######################################
 # Rbenv
