@@ -1,14 +1,13 @@
 # Requires git_cdw_info (see bin/git_cdw_info)
 # https://github.com/benhoskings/dot-files/blob/master/files/bin/git_cwd_info
 
-prompt_char() {
+function prompt_char() {
     git branch >/dev/null 2>/dev/null && echo '±' && return
     hg root >/dev/null 2>/dev/null && echo '☿' && return
     # echo '○' # No repo
 }
 
-function ruby_version()
-{
+function ruby_version() {
     if which rvm-prompt &> /dev/null; then
       rvm-prompt i v g
     else
@@ -16,6 +15,14 @@ function ruby_version()
         rbenv version | sed -e "s/ (set.*$//"
       fi
     fi
+}
+
+function parse_git_stash() {
+  if [[ -n $(git stash list 2> /dev/null) ]]; then
+    echo " [S]"
+  else
+    echo ""
+  fi
 }
 
 # For my own and others sanity
@@ -32,7 +39,7 @@ function ruby_version()
 # %(?..) => prompt conditional - %(condition.true.false)
 
 PROMPT='
-%{$fg_bold[cyan]%}%~%{$reset_color%} $(prompt_char)$(git_cwd_info)
+%{$fg_bold[cyan]%}%~%{$reset_color%} $(prompt_char)$(git_cwd_info)$(parse_git_stash)
 %F{cyan}❯%f '
 
 # RPROMPT='$(prompt_char) $(git_cwd_info)%{$reset_color%}'
