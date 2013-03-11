@@ -32,6 +32,12 @@ function ruby_version() {
     fi
 }
 
+function node_version() {
+    if which node &> /dev/null; then
+      node --version
+    fi
+}
+
 # Show remote ref name and number of commits ahead-of or behind
 function +vi-git-st() {
     local ahead behind remote
@@ -76,4 +82,4 @@ PROMPT='
 #%F{cyan}❯%f '
 
 # RPROMPT='%F{magenta}$(rbenv_prompt_info)%f'
-# RPROMPT='%{$fg[magenta]%}$(ruby_version)%{$reset_color%}'
+RPROMPT='%{$fg[magenta]%}ruby $(ruby_version)%{$reset_color%} %{$fg[green]%} node $(node_version)%{$reset_color%}'
