@@ -6,6 +6,7 @@ Vim plugins managed by [Pathogen](https://github.com/tpope/vim-pathogen)
 
 ## Installed Plugins
 
+- [NERDCommenter](https://github.com/scrooloose/nerdcommenter.git)
 - [NERDTree](https://github.com/scrooloose/nerdtree/) for filesystem navigation. Mapped to `Ctrl + D` in Normal Mode
 - [Vim Colors Solarized](https://github.com/altercation/vim-colors-solarized/) [http://ethanschoonover.com/solarized] colour scheme.
 - [Vim Indent Guides] Indent Guides is a plugin for visually displaying indent levels in Vim. Mapped to `<Leader>ig`
