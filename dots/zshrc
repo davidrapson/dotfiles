@@ -47,6 +47,7 @@ PATH=$HOME/.dotfiles/bin:$PATH; export PATH
 
 # For node, so modules are picked up
 NODE_PATH="$HOME/Developer/lib/node_modules"; export NODE_PATH
+export PHANTOMJS_BIN=$HOME/Developer/bin/phantomjs
 
 # Custom man pages path
 MANPATH="$HOME/Developer/share/man:$MANPATH"; export MANPATH
