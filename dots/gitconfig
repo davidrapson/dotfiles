@@ -49,6 +49,7 @@
     sync = !legit sync \"$@\"
     publish = !legit publish \"$@\"
     graft = !legit graft \"$@\"
+	permission-reset = "!git diff -p | grep -E \"^(diff|old mode|new mode)\" | sed -e \"s/^old/NEW/;s/^new/old/;s/^NEW/new/\" | git apply"
 [color]
     ui = true
     [color "branch"]
@@ -76,3 +77,5 @@
     name = David Rapson
 [credential]
     helper = osxkeychain
+[push]
+	default = simple
