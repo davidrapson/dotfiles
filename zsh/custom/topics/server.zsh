@@ -4,6 +4,9 @@
 # Aliases
 # -------
 
+alias apache_error='tail -f /var/log/apache2/error_log'
+alias apache_access='tail -f /var/log/apache2/access_log'
+
 # Functions
 # ---------
 
