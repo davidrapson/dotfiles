@@ -53,7 +53,7 @@ export PHANTOMJS_BIN=$HOME/Developer/bin/phantomjs
 MANPATH="$HOME/Developer/share/man:$MANPATH"; export MANPATH
 
 # Set default editor
-export EDITOR='subl -w'
+export EDITOR='subl'
 export LESSEDIT='subl %f'
 
 # Always use vim as the visual editor

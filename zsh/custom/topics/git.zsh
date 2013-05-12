@@ -34,12 +34,14 @@ alias gce='git config user.email david@davidrapson.co.uk'
 alias gcew='git config user.email david.rapson@mademedia.co.uk'
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
+# Open any files marked as “modified” in default editor.
+alias changed='$EDITOR `git status --porcelain | sed -ne "s/^ M //p"`'
 
 # Functions
 # ---------
 
 # Git Sandbox user/repo
-function git_sandbox() {
+function sandbox() {
   cd ~/Developer/code/sandbox && git clone $1 && cd `last_modified`
 }
 
