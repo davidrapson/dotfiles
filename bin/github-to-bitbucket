@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# Github -> Bitbucket
+#  - Save this in /usr/local/bin as github-to-bitbucket
+#  - Then:
+#      cd /usr/local/bin
+#      chmod u+x github-to-bitbucket
+#  - Then restart your terminal
+#  - You should now have a github-to-bitbucket command
+
+# Or run:
+#   cd /usr/local/bin && wget -O github-to-bitbucket https://gist.github.com/phuu/5598252/raw/gistfile1.sh && chmod u+x github-to-bitbucket
+# then restart yaw terminals.
+
+# Reconnaissance
+echo
+echo "  GitHub -> Bitbucket"
+echo
+read -p "  Project name       : " -r PROJECT_NAME
+read -p "  GitHub .git url    : " -r GITHUB_URL
+read -p "  Butbucket .git url : " -r BITBUCKET_URL
+
+# Make sure all is well
+echo
+echo "  Cool."
+echo
+echo "  I'm gonna clone $GITHUB_URL from Github into $PROJECT_NAME,"
+echo "  then push it back up to $BITBUCKET_URL on Bitbucket."
+read -p "  Still cool? [y/N] : " -r
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  echo
+  echo "  Here we go..."
+  echo
+  git clone $GITHUB_URL $PROJECT_NAME &&
+  cd $PROJECT_NAME &&
+  git remote add bitbucket $BITBUCKET_URL &&
+  git push bitbucket master
+fi
