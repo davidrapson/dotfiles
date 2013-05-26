@@ -5,7 +5,6 @@
 # ===============================================
 
 dotfiles   = Dir["dots/*"]
-scripts    = Dir["scripts/*"]
 zsh_themes = Dir["zsh/themes/*"]
 zsh_custom = "zsh/custom"
 
