@@ -2,14 +2,14 @@
 
 # Project
 # =======
-create()
-{
-  mkdir -p Supplied Media/Images Media/Logos Documents
-  touch README.txt
+create() {
+
+  mkdir -p Design Build/Assets Discovery/UX/Backup Supplied
+
 }
 
-usage()
-{
+usage() {
+
   cat << __EOT
 
   Project
@@ -19,17 +19,9 @@ usage()
     Where <name> is the name you'd like to use for the project, e.g., Bacon
     For multi-word project names simply wrap <name> in quotes, e.g., "Chunky Bacon"
 
-  Project Structure:
-    <name>
-    - Supplied
-    - Media
-      - Images
-      - Logos
-    - Documents
-    - README.txt
-
 __EOT
   exit 1
+
 }
 
 
