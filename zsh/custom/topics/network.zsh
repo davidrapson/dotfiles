@@ -10,7 +10,7 @@ alias whois="whois -h whois-servers.net"
 # View HTTP traffic
 # brew install ngrep
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 # Add aliases for HTTP verbs
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
