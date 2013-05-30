@@ -26,7 +26,9 @@ CMD_MAX_EXEC_TIME=5
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git # You can add hg too if needed: `git hg`
-zstyle ':vcs_info:git*' formats ' %b'
+zstyle ':vcs_info:git*:*' get-revision true
+zstyle ':vcs_info:git*:*' check-for-changes true
+zstyle ':vcs_info:git*' formats ' %b@%8.8i% '
 zstyle ':vcs_info:git*' actionformats ' %b|%a'
 
 # enable prompt substitution
