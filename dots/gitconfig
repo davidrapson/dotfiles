@@ -78,5 +78,3 @@
     name = David Rapson
 [credential]
     helper = osxkeychain
-[push]
-	default = simple
