@@ -1,6 +1,5 @@
 [core]
     autocrlf = input
-    # editor = vim
     editor = subl --wait
     excludesfile = ~/.gitignore_global
 	quotepath = false
@@ -9,55 +8,146 @@
     # Trim whitespace on commit
     # whitespace = fix
 [alias]
+
+    ##
+    # Helpers
+    ##
+
     a = add
+    p = add --patch
+    patch = add --patch
+    s = status
     amend = commit --amend -c HEAD
-    gzip = !git archive HEAD | gzip > $PWD.tar.gz
     ap = add --patch
     c = commit -m
     cob = checkout -b
-    files = show --pretty="format:" --name-only
-    history = log --patch
-    ir = !git rebase -i origin/master
+
+    ## Reset permissions to git defaults
+    permission-reset = "!git diff -p | grep -E \"^(diff|old mode|new mode)\" | sed -e \"s/^old/NEW/;s/^new/old/;s/^NEW/new/\" | git apply"
+
+    # Tar & Gzip the git repo
+    gzip = !git archive HEAD | gzip > $PWD.tar.gz
+
+    ##
+    # Logging
+    ##
+
+    # Various git logging aliases for different formats
     ll = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
     l = !git --no-pager ll
-    last = log -1 HEAD --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
     loll = log --pretty=oneline --abbrev-commit --graph --decorate
     lol = !git --no-pager loll
     lolal = log --graph --decorate --pretty=oneline --abbrev-commit --all
     lola = !git --no-pager lolal
-    patch = add --patch
-    p = add --patch
-    s = status
-    showfiles = show --pretty="format:" --name-only
-    staged = diff --cached
-    squash = rebase -i @{u}
-    undo = reset --soft HEAD^
-    unstage = reset HEAD --
-    unstaged = diff
+
+    # Show the last commit
+    last = log -1 HEAD --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+
+    history = log --patch
+
+    ##
+    # Working with branches
+    ##
+
+    # Get the current branch name (not so useful in itself, but used in
+    # other aliases)
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+    # Push the current branch to the remote "origin", and set it to track
+    # the upstream branch
+    publish = "!git push -u origin $(git branch-name)"
+    # Delete the remote version of the current branch
+    unpublish = "!git push origin :$(git branch-name)"
+    # Delete a branch and recreate it from master — useful if you have, say,
+    # a development branch and a master branch and they could conceivably go
+    # out of sync
+    recreate = "!f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout master && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
+
+    # Fire up your difftool (e.g. Kaleidescope) with all the changes that
+    # are on the current branch.
+    code-review = difftool origin/master...
+
+    # Given a merge commit, find the span of commits that exist(ed) on that
+    # branch. Again, not so useful in itself, but used by other aliases.
+    merge-span = "!f() { echo $(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f1)$1$(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f2); }; f"
+
+    # Find the commits that were introduced by a merge
+    merge-log = "!git log `git merge-span .. $1`"
+    # Show the changes that were introduced by a merge
+    merge-diff = "!git diff `git merge-span ... $1`"
+    # As above, but in your difftool
+    merge-difftool = "!git difftool `git merge-span ... $1`"
+
+    # Interactively rebase all the commits on the current branch
+    rebase-branch = "!git rebase -i `git merge-base master HEAD`"
+
     up = !git fetch origin && git rebase origin/master
-    wtf = !"git-wtf"
-    # http://gitready.com/advanced/2009/02/25/keep-either-file-in-merge-conflicts.html
+
+    ##
+    # Working with files
+    ##
+
+    # Unstage any files that have been added to the staging area
+    unstage = reset HEAD --
+    # Show changes that have been staged
+    diffc = diff --cached
+
+    # Mark a file as "assume unchanged", which means that Git will treat it
+    # as though there are no changes to it even if there are. Useful for
+    # temporary changes to tracked files
+    assume = update-index --assume-unchanged
+    # Reverse the above
+    unassume = update-index --no-assume-unchanged
+    # Show the files that are currently assume-unchanged
+    assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+
+    # Checkout our version of a file and add it
+    ours = "!f() { git checkout --ours $@ && git add $@; }; f"
+    # Checkout their version of a file and add it
+    theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+
+    # Delete any branches that have been merged into master
+    # See also: https://gist.github.com/robmiller/5133264
+    delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+    # Show files in a commit
+    files = show --pretty="format:" --name-only
+
+    # Show changes that have been changed
+    staged = diff --cached
+
+    # Squash commits together, interactive rebase
+    squash = rebase -i @{u}
+
+    # Undo the last commit
+    undo = reset --soft HEAD^
+
     # merge confict: keep local file
     ours = checkout --ours
     # merge confict: keep merge file
     theirs = checkout --theirs
+
+    ##
+    # Third-party
+    ##
+
+    # git-wtf gem. displays the state of your repository in a readable, easy-to-scan format
+    wtf = !"git-wtf"
+
     # http://www.git-legit.org/
     switch = !legit switch \"$@\"
     branches = !legit branches
     sprout = !legit sprout \"$@\"
-    unpublish = !legit unpublish \"$@\"
     harvest = !legit harvest \"$@\"
     sync = !legit sync \"$@\"
-    publish = !legit publish \"$@\"
     graft = !legit graft \"$@\"
-	permission-reset = "!git diff -p | grep -E \"^(diff|old mode|new mode)\" | sed -e \"s/^old/NEW/;s/^new/old/;s/^NEW/new/\" | git apply"
+
 [color]
     ui = true
-    [color "branch"]
+[color "branch"]
     current = yellow black
     local = yellow
     remote = magenta
-    [color "diff"]
+[color "diff"]
     frag = magenta bold
     meta = yellow bold
     new = green reverse
