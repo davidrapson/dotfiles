@@ -70,6 +70,12 @@ CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"; export CONFI
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 
 #######################################
+# NVM
+#######################################
+
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+
+#######################################
 # FASD
 #######################################
 
