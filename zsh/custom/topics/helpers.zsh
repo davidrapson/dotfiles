@@ -172,6 +172,10 @@ function fpath() {
   find `pwd` -name $1
 }
 
+function dfind() {
+  find . -name $1 -type d
+}
+
 # Recursively remove .DS_Store files
 function cleanup() {
   find . -name '*.DS_Store' -type f -ls -delete
