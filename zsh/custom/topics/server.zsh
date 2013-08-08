@@ -27,3 +27,7 @@ function public_server() {
 function gem_server() {
   open "http://localhost:8808" && gem server
 }
+
+function chowww() {
+  sudo chown _www:_www $1
+}
