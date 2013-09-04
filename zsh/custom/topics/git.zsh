@@ -30,6 +30,7 @@ alias gp='git add --patch'
 alias gst='git status --branch --short'
 alias gs='git status --branch --short'
 alias gup='git smart-pull'
+alias gups='git smart-pull && git submodule update'
 alias gce='git config user.email david@davidrapson.co.uk'
 alias gcew='git config user.email david.rapson@mademedia.co.uk'
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
