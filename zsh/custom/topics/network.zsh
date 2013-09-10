@@ -69,3 +69,8 @@ function flush() {
     dscacheutil -flushcache
   fi
 }
+
+# Load Chrome without certificate warnings
+function chrome-danger() {
+  open /Applications/Google\ Chrome.app --args --ignore-certificate-errors --allow-running-insecure-content
+}

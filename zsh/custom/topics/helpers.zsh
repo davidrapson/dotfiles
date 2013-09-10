@@ -125,7 +125,8 @@ fi
 
 alias c='clear'
 alias o='open .'
-alias h="history"
+alias h='history'
+alias rtfm='man'
 
 # fasd
 # brew install fasd
