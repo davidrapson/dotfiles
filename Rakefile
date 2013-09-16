@@ -88,32 +88,22 @@ end # header
 def sync_file( file, prefix, options = {} )
 
   options[:dry_run] ||= false
-  options[:copy]    ||= false
+  options[:copy] ||= false
 
-  source              = File.join(File.dirname(__FILE__), file)
-  name                = File.basename(file)
-  target              = File.expand_path("#{prefix}#{name}")
+  name = File.basename(file)
+  source = File.join(File.dirname(__FILE__), file)
+  target = File.expand_path("#{prefix}#{name}")
+  sync_method = ( options[:copy] ) ? 'copy' : 'symlink'
 
-  # Copy
-  if options[:copy]
-
-    if !options[:dry_run]
-      rm_rf target if File.exists?(target)
+  if !options[:dry_run]
+    rm_rf target if File.exists?(target)
+    if options[:copy]
       cp_r source, target, { :preserve => true }
     else
-      puts "Will copy #{name}  =>  #{prefix}#{name}"
-    end
-
-  # Symlink
-  else
-
-    if !options[:dry_run]
-      rm_rf target if File.exists?(target)
       ln_s source, target
-    else
-      puts "Will symlink #{name}  =>  #{prefix}#{name}"
     end
-
+  else
+    puts "Will #{sync_method} #{name} => #{prefix}#{name}"
   end
 
 end # sync_file
