@@ -20,7 +20,7 @@ set smartcase                     " But case-sensitive if expression contains a 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
 
-set cmdheight=2                   "The commandbar height
+set cmdheight=2                   " The commandbar height
 
 set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
