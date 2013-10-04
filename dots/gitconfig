@@ -163,13 +163,11 @@
     untracked = cyan reverse
 [difftool]
     prompt = false
-[difftool "Kaleidoscope"]
-    cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [diff]
-    tool = Kaleidoscope
+    algorithm = patience
 [user]
     name = David Rapson
 [credential]
     helper = osxkeychain
 [push]
-	default = simple
+    default = simple
