@@ -77,6 +77,9 @@
     # As above, but in your difftool
     merge-difftool = "!git difftool `git merge-span ... $1`"
 
+    # Show merge conflicts
+    conflicts = diff --name-only --diff-filter=U
+
     # Interactively rebase all the commits on the current branch
     rebase-branch = "!git rebase -i `git merge-base master HEAD`"
 
