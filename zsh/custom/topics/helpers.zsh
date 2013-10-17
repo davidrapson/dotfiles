@@ -56,7 +56,6 @@ alias c='clear'
 alias o='open .'
 alias h="history"
 
-
 # fasd
 # brew install fasd
 if [[ -f $HOME/.fasd ]]; then
@@ -127,6 +126,9 @@ alias c='clear'
 alias o='open .'
 alias h='history'
 alias rtfm='man'
+
+# Copy path to current directory
+pwdp='pwd | pbcopy'
 
 # fasd
 # brew install fasd
