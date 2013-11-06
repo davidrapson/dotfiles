@@ -30,24 +30,11 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '✔ Public key copied to c
 # Functions
 # ---------
 
-# Show both local and public IP addresses
-function network() {
-  echo -e " Local IP: $(ipconfig getifaddr en0)"
-  echo -e "Public IP: $(curl -s icanhazip.com)";
-}
-
-# Get local IP and copy it to the clipboard
-function localip() {
-  if [[ OSXVERSION -eq '10.8' ]]; then
-    ipconfig getifaddr en0 | tr -d '\n' | tee >(pbcopy) | echo '✔ Local IP copied to clipboard.'
-  else
-    ifconfig en1 | grep inet | grep -v inet6 | cut -c 7-17
-  fi
-}
-
-# Get public IP and copy it to the clipboard
-function publicip() {
-  dig +short myip.opendns.com @resolver1.opendns.com | pbcopy| echo '✔ Public IP copied to clipboard.'
+function ips() {
+  # Show all interface IPs
+  ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'
+  # Show public ip
+  dig +short myip.opendns.com @resolver1.opendns.com
 }
 
 # All the dig info
@@ -68,9 +55,4 @@ function flush() {
   else
     dscacheutil -flushcache
   fi
-}
-
-# Load Chrome without certificate warnings
-function chrome-danger() {
-  open /Applications/Google\ Chrome.app --args --ignore-certificate-errors --allow-running-insecure-content
 }
