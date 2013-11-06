@@ -31,9 +31,11 @@ alias gst='git status --branch --short'
 alias gs='git status --branch --short'
 alias gup='git smart-pull'
 alias gups='git smart-pull && git submodule sync && git submodule update'
+alias gupstream='git fetch && git log --pretty=format:"%h %an %ad %s" --date=short ..@{upstream}'
 alias gce='git config user.email david@davidrapson.co.uk'
 alias gcew='git config user.email david.rapson@mademedia.co.uk'
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
+
 
 # Open any files marked as “modified” in default editor.
 alias changed='$EDITOR `git status --porcelain | sed -ne "s/^ M //p"`'
