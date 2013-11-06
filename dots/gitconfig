@@ -171,3 +171,5 @@
     helper = osxkeychain
 [push]
     default = simple
+[merge]
+	tool = opendiff
