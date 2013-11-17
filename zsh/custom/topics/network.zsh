@@ -57,11 +57,6 @@ function flush() {
   fi
 }
 
-# Load Chrome without certificate warnings
-function chrome-danger() {
-  open /Applications/Google\ Chrome.app --args --ignore-certificate-errors --allow-running-insecure-content
-}
-
 # Resolve host (e.g., patu, neon) from url
 function resolve-host() {
   for n in $(dig +short $1)
