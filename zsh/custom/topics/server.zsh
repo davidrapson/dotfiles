@@ -31,3 +31,10 @@ function gem_server() {
 function chowww() {
   sudo chown _www:_www $1
 }
+
+function bo_clean() {
+  php app/console cache:clear --env="${1}"
+  php app/console cache:warmup --env="${1}"
+  php app/console assetic:dump --env="${1}"
+  php app/console assets:install web --symlink --env="${1}"
+}
