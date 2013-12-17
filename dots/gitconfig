@@ -1,6 +1,6 @@
 [core]
     autocrlf = input
-    editor = subl --wait
+    editor = vim
     excludesfile = ~/.gitignore_global
     quotepath = false
     # whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
