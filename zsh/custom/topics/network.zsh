@@ -58,7 +58,7 @@ function flush() {
 }
 
 # Resolve host (e.g., patu, neon) from url
-function resolve-host() {
+function resolve() {
   for n in $(dig +short $1)
   do
       dig +short -x $n
