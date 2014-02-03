@@ -29,7 +29,7 @@ function gem_server() {
 }
 
 function chowww() {
-  sudo chown _www:_www $1
+  sudo chown -R _www:_www $1
 }
 
 function bo_clean() {
