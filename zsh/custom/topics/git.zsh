@@ -25,21 +25,18 @@ alias gh='git browse'
 alias gl='git smart-log'
 alias gm='git smart-merge'
 alias gmr='git merge --ff-only'
+alias gp='git add --patch'
+alias gcp='git cherry-pick'
 alias go='git_overview'
 alias gomg='omglog'
-alias gp='git add --patch'
 alias gst='git status --branch --short'
 alias gs='git status --branch --short'
 alias gup='git smart-pull'
 alias gups='git smart-pull && git submodule sync && git submodule update --init'
-alias gce='git config user.email david@davidrapson.co.uk'
-alias gcew='git config user.email david.rapson@mademedia.co.uk'
-alias grecent='git fetch && git log --pretty=format:"%h %an %ad %s" --date=short ..@{upstream}'
-alias ungit="find . -name '.git' -exec rm -rf {} \;"
-
-
 # Open any files marked as “modified” in default editor.
-alias changed='$EDITOR `git status --porcelain | sed -ne "s/^ M //p"`'
+alias gchanged='$EDITOR `git status --porcelain | sed -ne "s/^ M //p"`'
+# Ungit
+alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
 # Functions
 # ---------
