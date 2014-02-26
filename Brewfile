@@ -46,7 +46,6 @@ install webkit2png
 
 # Install other useful binaries
 install ack
-install android
 install lynx
 install rename
 install tree
