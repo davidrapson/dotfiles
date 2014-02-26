@@ -23,11 +23,7 @@ function public_server() {
   show 8080
 }
 
-# Open up a web page at http://localhost:8808/ with info about installed gems
-function gem_server() {
-  open "http://localhost:8808" && gem server
-}
-
+# Change owner of directory and children to apache
 function chowww() {
   sudo chown -R _www:_www $1
 }
