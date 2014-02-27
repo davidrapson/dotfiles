@@ -31,6 +31,7 @@ alias go='git_overview'
 alias gomg='omglog'
 alias gst='git status --branch --short'
 alias gs='git status --branch --short'
+alias grsa='git commit --amend --reset-author'
 alias gup='git smart-pull'
 alias gups='git smart-pull && git submodule sync && git submodule update --init'
 # Open any files marked as “modified” in default editor.
