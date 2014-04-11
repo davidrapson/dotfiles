@@ -47,6 +47,9 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory^=$HOME/.vim/tmp/    " put all swap files together in one place
 
+" Set tabwidth for gitcommit
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Visual
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
