@@ -21,7 +21,6 @@ alias ccode='cd ~/Developer/code/'
 # - or, finally: grep
 if (( $+commands[ag] )) ; then
   alias search='ag'
-  return 1
 elif (( $+commands[ack] )) ; then
   alias search='ag'
 else
@@ -46,8 +45,8 @@ alias llm='ls -am'
 # -A  -- list all except . and ..
 alias lll='ls -lhpA'
 
-# brew install tree
 if (( $+commands[tree] )) ; then
+
   # Tree shortcuts
   # brew install tree
   # -a All files are printed.
