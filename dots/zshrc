@@ -70,7 +70,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 #######################################
 
 if [[ -f $(brew --prefix php-version)/php-version.sh ]]; then
-  source $(brew --prefix php-version)/php-version.sh && php-version 5.5
+  source $(brew --prefix php-version)/php-version.sh && php-version 5.4
 fi
 
 #######################################
