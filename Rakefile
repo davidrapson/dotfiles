@@ -45,7 +45,7 @@ end # :zsh
 # Default Tasks
 # ===============================================
 
-task :default => [ :dotfiles, :zsh, :submodules ] do
+task :default => [ :dotfiles, :submodules ] do
   puts "\nAll Done."
 end # default
 

@@ -5,13 +5,6 @@
 # Use 256 colours
 TERM=xterm-256color
 
-# Set default editor
-export EDITOR='subl'
-export LESSEDIT='subl %f'
-
-# Always use vim as the visual editor
-VISUAL=vim; export VISUAL
-
 # Helps with builds
 CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"; export CONFIGURE_ARGS
 
@@ -77,7 +70,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 #######################################
 
 if [[ -f $(brew --prefix php-version)/php-version.sh ]]; then
-  source $(brew --prefix php-version)/php-version.sh && php-version 5.3
+  source $(brew --prefix php-version)/php-version.sh && php-version 5.5
 fi
 
 #######################################
