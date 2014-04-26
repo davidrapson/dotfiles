@@ -121,7 +121,7 @@
     # Squash commits together, interactive rebase
     squash = rebase -i @{u}
 
-    # Undo the last commit
+    # Undo your last commit, but don't throw away your changes
     undo = reset --soft HEAD^
 
     # merge confict: keep local file
@@ -132,9 +132,10 @@
     ##
     # Third-party
     ##
-
-    # git-wtf gem. displays the state of your repository in a readable, easy-to-scan format
-    wtf = !"git-wtf"
+    promote = !"git-promote"
+    wtf     = !"git-wtf"
+    rank-contributors = !"git-rank-contributors"
+    count   = !git shortlog -sn
 
     # http://www.git-legit.org/
     switch = !legit switch \"$@\"
@@ -179,3 +180,6 @@
     default = simple
 [merge]
     tool = opendiff
+[hub]
+    protocol = https
+
