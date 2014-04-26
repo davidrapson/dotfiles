@@ -36,26 +36,3 @@ alias llm='ls -am'
 # -p  -- append file type indicators for directory
 # -A  -- list all except . and ..
 alias lll='ls -lhpA'
-
-# Tree shortcuts
-# -a All files are printed.
-#    By default tree does not print hidden files
-# -L Max display depth of the directory tree.
-
-alias t='tree'
-# All files
-alias ta='tree -a'
-# All files limited to 2 levels deep
-alias t2='tree -aL 2'
-# All files limited to given depth
-alias tl='tree -aL'
-
-# Overrides
-# =========
-
-# Better grep
-# See:
-#   https://github.com/gf3/dotfiles/blob/master/.aliases
-#   http://www.termsys.demon.co.uk/vtansi.htm#colors
-#   LANG=C speeds up grep for utf-8
-alias grep='GREP_COLOR="2;37;46" LANG=C grep --color=auto'
