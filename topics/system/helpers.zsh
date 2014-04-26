@@ -14,6 +14,20 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias reload='source ~/.zshrc'
 alias ccode='cd ~/Developer/code/'
 
+# Aliase search to the installed command
+# Prefer:
+# - The silver surfer (Ag)
+# - Ack
+# - or, finally: grep
+if (( $+commands[ag] )) ; then
+  alias search='ag'
+  return 1
+elif (( $+commands[ack] )) ; then
+  alias search='ag'
+else
+  alias searh='grep'
+fi
+
 # -a  -- list entries starting with .
 # -x  -- sort horizontally
 alias l='ls -ax'

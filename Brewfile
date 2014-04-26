@@ -46,12 +46,13 @@ install phantomjs
 install webkit2png
 
 # Install other useful binaries
-install ack
+# install ack
 install lynx
 install rename
 install tree
 install spark
 install trash
+install the_silver_searcher
 
 # Remove outdated versions from the cellar
 cleanup
