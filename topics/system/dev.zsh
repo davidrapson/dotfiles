@@ -2,9 +2,6 @@
 # Dev
 #######################################
 
-# Run tracegl
-alias tracegl='node ~/.dotfiles/scripts/private/tracegl.js'
-
 # Browsers
 alias safari="open -a safari"
 alias firefox="open -a firefox"
