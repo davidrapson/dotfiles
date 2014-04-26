@@ -8,13 +8,14 @@
 
 ## Setup
 
-1. Fork this repo
-2. `git clone git://github.com/YOURUSERNAME/dotfiles.git ~/.dotfiles`
-3. `cd ~/.dotfiles`
-4. `rake`
-5. Put git environment variables in `~/.secrets`
+- Fork this repo
+- `git clone git://github.com/YOURUSERNAME/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
+- `brew bundle`
+- `rake`
 
 * * *
+
+Put (optional) git environment variables in `~/.secrets`
 
 ### `~/.secrets`
 
