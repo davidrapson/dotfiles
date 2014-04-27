@@ -27,34 +27,31 @@ alias gmr='git merge --ff-only'
 alias gp='git add --patch'
 alias gcp='git cherry-pick'
 alias go='git_overview'
-alias gomg='omglog'
 alias gst='git status --branch --short'
 alias gs='git status --branch --short'
 alias grsa='git commit --amend --reset-author'
 alias gup='git smart-pull'
 alias gups='git smart-pull && git submodule sync && git submodule update --init'
+
+if (( $+commands[omglog] )) ; then
+    alias gomg='omglog'
+fi
+
 # Open any files marked as “modified” in default editor.
 alias gchanged='$EDITOR `git status --porcelain | sed -ne "s/^ M //p"`'
+
 # Ungit
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
-#
 # Will return the current branch name
 # Usage example: git pull origin $(current_branch)
-#
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
   echo ${ref#refs/heads/}
 }
 
-function current_repository() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
-  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
-  echo $(git remote -v | cut -d':' -f 2)
-}
-
-# these aliases take advantage of the previous function
+# These aliases take advantage of the current_branch function
 alias ggpull='git pull origin $(current_branch)'
 alias ggpur='git pull --rebase origin $(current_branch)'
 alias ggpush='git push origin $(current_branch)'
