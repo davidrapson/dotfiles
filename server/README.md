@@ -1,6 +1,6 @@
 # Server Dotfiles
 
-Stripped down version of the dotfiles for use on remote servers.
+Stripped down version of dotfiles for use on remote servers.
 
 ## Setup
 

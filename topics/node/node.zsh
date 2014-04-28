@@ -1,8 +1,6 @@
-# Server
-# ======
-
-# Functions
-# ---------
+#######################################
+# Node
+#######################################
 
 # Install a grunt plugin and save to devDependencies
 function gri() {

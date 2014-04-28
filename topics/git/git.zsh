@@ -1,13 +1,6 @@
+#######################################
 # Git
-# ===
-
-# Aliases
-# -------
-
-# More Git aliases in ~/.gitconfig
-# Inspired by Thoughtbot
-# http://robots.thoughtbot.com/post/4747482956/streamline-your-git-workflow-with-aliases
-# These extend the default oh-my-zsh git plugin
+#######################################
 
 # Wrap git with hub
 # brew install hub
@@ -17,8 +10,14 @@ then
   alias git=$hub_path
 fi
 
+# Aliases
+# More Git aliases in ~/.gitconfig
+# Inspired by Thoughtbot
+# http://robots.thoughtbot.com/post/4747482956/streamline-your-git-workflow-with-aliases
 # Some of these git aliases use the `git-smart` and `omglog` gems
 # `gem install git-smart omglog` then `rbenv rehash`
+alias gc='git commit'
+alias gco='git checkout'
 alias gau='git add --update'
 alias gca='git commit --amend'
 alias gh='git browse'
@@ -28,33 +27,32 @@ alias gmr='git merge --ff-only'
 alias gp='git add --patch'
 alias gcp='git cherry-pick'
 alias go='git_overview'
-alias gomg='omglog'
 alias gst='git status --branch --short'
 alias gs='git status --branch --short'
 alias grsa='git commit --amend --reset-author'
 alias gup='git smart-pull'
 alias gups='git smart-pull && git submodule sync && git submodule update --init'
+
+if (( $+commands[omglog] )) ; then
+    alias gomg='omglog'
+fi
+
 # Open any files marked as “modified” in default editor.
 alias gchanged='$EDITOR `git status --porcelain | sed -ne "s/^ M //p"`'
+
 # Ungit
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
-# Functions
-# ---------
-
-# Git Sandbox user/repo
-function sandbox() {
-  cd ~/Developer/code/sandbox && git clone $1 && cd `last_modified`
+# Will return the current branch name
+# Usage example: git pull origin $(current_branch)
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
 }
 
-# Requires legit (brew install legit) and gbrt (gbrt in bin/)
-function git_overview() {
-
-  echo '\nBranch Status'
-  echo '=============================================\n'
-  legit branches
-
-  echo '\n'
-  gbrt
-
-}
+# These aliases take advantage of the current_branch function
+alias ggpull='git pull origin $(current_branch)'
+alias ggpur='git pull --rebase origin $(current_branch)'
+alias ggpush='git push origin $(current_branch)'
+alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'

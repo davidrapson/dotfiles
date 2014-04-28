@@ -10,9 +10,6 @@
 [submodule "dots/vim/bundle/vim-indent-guides"]
 	path = dots/vim/bundle/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "dots/vim/bundle/vim-tomorrow-theme"]
-	path = dots/vim/bundle/vim-tomorrow-theme
-	url = git://github.com/chriskempson/vim-tomorrow-theme.git
 [submodule "dots/vim/bundle/nerdcommenter"]
 	path = dots/vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git

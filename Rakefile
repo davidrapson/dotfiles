@@ -21,31 +21,8 @@ task :dotfiles do
 
 end
 
-
-# Oh My ZSH
-# ===============================================
-
-task :zsh =>  [ "zsh:custom", "zsh:themes" ]
-namespace :zsh do
-
-  task :custom do
-    header "Symlinking zsh custom directory..."
-    sync_file zsh_custom, "~/.oh-my-zsh/"
-  end
-
-  task :themes do
-    header "Symlinking zsh theme files..."
-    zsh_themes.each do |file|
-      sync_file file, "~/.oh-my-zsh/themes/"
-    end
-  end
-
-end # :zsh
-
-
 # Git Submodules
 # ===============================================
-
 
 task :submodules =>  [ "submodules:setup" ]
 
@@ -68,7 +45,7 @@ end # :zsh
 # Default Tasks
 # ===============================================
 
-task :default => [ :dotfiles, :zsh, :submodules ] do
+task :default => [ :dotfiles, :submodules ] do
   puts "\nAll Done."
 end # default
 

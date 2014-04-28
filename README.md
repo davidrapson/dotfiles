@@ -1,14 +1,21 @@
 # Dotfiles
 
+## Requirements
+
+- ZSH
+- Homebrew
+- Ruby & Rake (for setup)
+
 ## Setup
 
-1. `git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh`
-2. `git clone git://github.com/davidrapson/dotfiles.git ~/.dotfiles`
-3. `cd ~/.dotfiles`
-4. `rake`
-5. Put git environment variables in `~/.secrets`
+- Fork this repo
+- `git clone git://github.com/YOURUSERNAME/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
+- `brew bundle`
+- `rake`
 
 * * *
+
+Put (optional) git environment variables in `~/.secrets`
 
 ### `~/.secrets`
 
@@ -18,3 +25,5 @@
     export GIT_COMMITTER_EMAIL=''
     export GITHUB_USER=''
     export GITHUB_TOKEN=''
+
+♥

@@ -11,11 +11,19 @@ install coreutils
 install findutils
 # Install ZSH
 install zsh
+install zsh-completions
 
 # Install more recent versions of some OS X tools
+tap homebrew/versions
 tap homebrew/dupes
 install vim --override-system-vi
 install homebrew/dupes/grep
+install grc
+
+# Ruby
+install rbenv
+install rbenv-gem-rehash
+install ruby-build
 
 # Version Control
 install git
@@ -26,17 +34,16 @@ install tig
 install mercurial
 
 # PHP & MySQL
-tap josegonzalez/homebrew-php
-install php53
-install php53-xdebug
-install php53-xhprof
-install php53-mcrypt
+install php-version
+install php54 --with-fpm --with-apache --with-mysql
+install php54-memcached
+install libmemcached
+install php54-xdebug
+install php54-xhprof
+install php54-mcrypt
 install composer
+install behat
 install mysql
-
-# Ruby
-install rbenv
-install ruby-build
 
 # JS
 install node
@@ -45,7 +52,7 @@ install phantomjs
 install webkit2png
 
 # Install other useful binaries
-install ack
+install the_silver_searcher
 install lynx
 install rename
 install tree
