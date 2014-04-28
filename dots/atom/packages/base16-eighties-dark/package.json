@@ -1,0 +1,26 @@
+{
+  "name": "base16-eighties-dark",
+  "theme": "syntax",
+  "version": "2.1.1",
+  "description": "Base16 Eighties Dark Theme for Atom",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tyre/base16-eighties-dark"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# base16-eighties-dark Atom theme\n\nThis is a theme for [Atom](http://atom.io) based on [Chris Kempson's Base 16 Eighties Theme](http://chriskempson.github.io/base16/#eighties).\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/tyre/base16-eighties-dark/issues"
+  },
+  "homepage": "https://github.com/tyre/base16-eighties-dark",
+  "_id": "base16-eighties-dark@2.1.1",
+  "dist": {
+    "shasum": "64e958f559a22827019fe3b329312bdbb2779893"
+  },
+  "_resolved": "/var/folders/80/vv81q0k91fb7__xgtgwmv1tc0000gn/T/d-114231-98945-1g6fgt9/package.tgz",
+  "_from": "/var/folders/80/vv81q0k91fb7__xgtgwmv1tc0000gn/T/d-114231-98945-1g6fgt9/package.tgz"
+}

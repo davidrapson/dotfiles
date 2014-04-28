@@ -1,7 +1,8 @@
 *.sw*
 *private*
 .DS_Store
-atom.symlink/.node-gyp
-atom.symlink/.storage
-atom.symlink/storage
-atom.symlink/themes
+dots/atom/.node-gyp/
+dots/atom/compile-cache/
+dots/atom/.storage/
+dots/atom/storage/
+dots/atom/themes/

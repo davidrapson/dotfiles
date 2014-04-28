@@ -1,0 +1,26 @@
+{
+  "name": "silverstripe-bundle",
+  "version": "0.1.0",
+  "description": "An atom port of the Silverstripe Textmate Bundle by @mattash",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adrexia/silverstripe-atom.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# silverstripe package\n\nAn atom port of the Silverstripe Textmate Bundle by @mattash\n\nOrignal URL: https://github.com/mattash/silverstripe-textmate-bundle.git\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/adrexia/silverstripe-atom/issues"
+  },
+  "homepage": "https://github.com/adrexia/silverstripe-atom",
+  "_id": "silverstripe-bundle@0.1.0",
+  "dist": {
+    "shasum": "73e8f1bc962a6df0e9dc131579d52f5b15483128"
+  },
+  "_resolved": "/var/folders/80/vv81q0k91fb7__xgtgwmv1tc0000gn/T/d-114316-97443-1rb20da/package.tgz",
+  "_from": "/var/folders/80/vv81q0k91fb7__xgtgwmv1tc0000gn/T/d-114316-97443-1rb20da/package.tgz"
+}
