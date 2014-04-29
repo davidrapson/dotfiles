@@ -16,8 +16,8 @@
   'showIndentGuide': true
 'core':
   'themes': [
-    'atom-light-ui'
-    'base16-eighties-dark'
+    'soda-light-ui'
+    'electron-dark-syntax'
   ]
   'projectHome': '/Users/davidrapson/Sites/projects'
   'audioBeep': false
