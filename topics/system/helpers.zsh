@@ -12,7 +12,7 @@ alias ...='cd ../..'
 alias ~="cd ~" # `cd` is probably faster to type though
 
 alias reload='source ~/.zshrc'
-alias ccode='cd ~/Developer/code/'
+alias ccode='cd $HOME/Sites/code/'
 
 # Aliase search to the installed command
 # Prefer:
