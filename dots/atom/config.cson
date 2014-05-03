@@ -24,6 +24,7 @@
   'disabledPackages': [
     'wrap-guide'
     'autocomplete-plus'
+    'grunt-runner'
   ]
 'autocomplete-plus':
   'autoActivationDelay': 300
