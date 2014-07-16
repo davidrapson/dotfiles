@@ -1,19 +1,19 @@
 'exception-reporting':
   'userId': 'b5af3f40-7ed7-3abc-6b18-482f7c6070d0'
 'release-notes':
-  'viewedVersion': '0.92.0'
+  'viewedVersion': '0.95.0'
 'welcome':
   'showOnStartup': false
 'metrics':
   'userId': '8544176b4ae54fda551726d42a347b876766893c'
 'editor':
-  'fontSize': 11
   'tabLength': 4
   'softWrap': true
   'preferredLineLength': 120
   'lineHeight': 1.6
   'fontFamily': 'Meslo LG M DZ'
   'showIndentGuide': true
+  'fontSize': 11
 'core':
   'themes': [
     'soda-light-ui'
