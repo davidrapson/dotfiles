@@ -183,3 +183,5 @@
 [hub]
     protocol = https
 
+[pull]
+	rebase = true
