@@ -29,7 +29,7 @@ alias gcp='git cherry-pick'
 alias go='git_overview'
 alias gst='git status --branch --short'
 alias gs='git status --branch --short'
-alias grsa='git commit --amend --reset-author'
+alias gra='git commit --amend --reset-author'
 alias gup='git smart-pull'
 alias gups='git smart-pull && git submodule sync && git submodule update --init'
 

@@ -58,6 +58,7 @@ install rename
 install tree
 install spark
 install trash
+install jq
 
 # Remove outdated versions from the cellar
 cleanup
