@@ -49,12 +49,15 @@ function mx() {
 }
 
 # Flush Directory Service cache
+# OSX seems to change the way this is done every version
 OSXVERSION=$(sw_vers | grep ProductVersion | cut -c 17-20)
 function flush() {
-  if [[ OSXVERSION -eq '10.8' ]]; then
-    sudo killall -HUP mDNSResponder
+  if [[ OSXVERSION -eq '10.10' ]]; then
+    sudo discoveryutil udnsflushcaches
+  elif [[ OSXVERSION -eq '10.9' ]]; then
+    dscacheutil -flushcache; sudo killall -HUP mDNSResponder
   else
-    dscacheutil -flushcache
+    sudo killall -HUP mDNSResponder
   fi
 }
 
