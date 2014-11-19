@@ -30,11 +30,6 @@ brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install grc
 
-# Ruby
-brew install rbenv
-brew install rbenv-gem-rehash
-brew install ruby-build
-
 # Version Control
 brew install git
 brew install git-extras
@@ -43,23 +38,26 @@ brew install legit
 brew install tig
 brew install mercurial
 
-# PHP & MySQL
-brew install php-version
-brew install php54 --with-fpm --with-apache --with-mysql
-brew install php54-memcached
-brew install libmemcached
-brew install php54-xdebug
-brew install php54-xhprof
-brew install php54-mcrypt
-brew install composer
-brew install behat
-brew install mysql
-
 # JS
 brew install node
-brew install chromedriver
-brew install phantomjs
-brew install webkit2png
+brew install chromedriver phantomjs
+
+# Ruby
+# brew install rbenv
+# brew install rbenv-gem-rehash
+# brew install ruby-build
+
+# PHP & MySQL
+# brew install php-version
+# brew install php54 --with-fpm --with-apache --with-mysql
+# brew install php54-memcached
+# brew install libmemcached
+# brew install php54-xdebug
+# brew install php54-xhprof
+# brew install php54-mcrypt
+# brew install composer
+# brew install behat
+# brew install mysql
 
 # Install other useful binaries
 brew install the_silver_searcher
