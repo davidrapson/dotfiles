@@ -10,8 +10,12 @@
 
 - Fork this repo
 - `git clone git://github.com/YOURUSERNAME/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
-- `brew bundle`
 - `rake`
+
+## Common Modules
+
+- `init/brew_setup.sh` to install essential Homebrew tools
+- `init/npm_setup.sh` to intall essential global npm tools
 
 * * *
 
