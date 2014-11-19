@@ -26,3 +26,8 @@ function npmui() {
     echo "npm install npm-check-updates -g"
   fi
 }
+
+# List globally installed dependencies (first levelt only)
+function npmg() {
+    npm list -g --depth 0
+}
