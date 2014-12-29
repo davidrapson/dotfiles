@@ -77,7 +77,7 @@ fi
 # Shhhh!
 #######################################
 
-# Put secret configuration settings in ~/.secrets
+# Put sensitive environment variables (like git config) in ~/.secrets
 if [[ -a ~/.secrets ]] then
   source ~/.secrets
 fi
