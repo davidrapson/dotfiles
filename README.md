@@ -1,5 +1,7 @@
 # ~/.dotfiles
 
+![dotfiles mov](https://cloud.githubusercontent.com/assets/123386/5573898/b1f46be0-8fab-11e4-8dcd-f37c02478cdd.gif)
+
 ## Requirements
 
 - ZSH
