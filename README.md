@@ -19,9 +19,9 @@
 
 * * *
 
-Put (optional) git environment variables in `~/.secrets`
-
 ### `~/.secrets`
+
+Put sensitive environment variables (like git config) in `~/.secrets`
 
     export GIT_AUTHOR_NAME=''
     export GIT_AUTHOR_EMAIL=''
