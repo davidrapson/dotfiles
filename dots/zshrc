@@ -72,12 +72,3 @@ if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 if [[ -f $(brew --prefix php-version)/php-version.sh ]]; then
   source $(brew --prefix php-version)/php-version.sh && php-version 5.4
 fi
-
-#######################################
-# Shhhh!
-#######################################
-
-# Put sensitive environment variables (like git config) in ~/.secrets
-if [[ -a ~/.secrets ]] then
-  source ~/.secrets
-fi
