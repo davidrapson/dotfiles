@@ -1,8 +1,5 @@
 set nocompatible                  " Must come first because it changes other options.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Pathogen
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call pathogen#infect()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -75,16 +72,6 @@ set visualbell                    " No beeping.
 set tabstop=2                     " Global tab width.
 set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Themes and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set gfn=Meslo\ LG\ M\ DZ:h12      " Set font family and size
-
-colorscheme solarized
-"set background=dark " Dark colour scheme
-set background=light " Light colour scheme
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Easier Split Navigation
