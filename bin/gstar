@@ -1,4 +1,0 @@
-#!/bin/sh
-
-URL="http://content.guardianapis.com/search?api-key=test&show-fields=starRating&page-size=100&tag=tone/albumreview,tone/reviews"
-curl -s $URL | jq ".response.results[]|select(.fields.starRating != null)|{webTitle, url: .webUrl, starRating:   (.fields.starRating|tonumber)}|select(.starRating >= ${1:-5})"

@@ -13,11 +13,6 @@
 ######################
 *.log
 
-# Backup files #
-################
-*.orig
-*.old
-
 # OS generated files #
 ######################
 .DS_Store*

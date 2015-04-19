@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Install common global modules
+# NOTE: Barely any node modules should be installed globaly
 
 # Grunt CLI
 npm install -g grunt-cli
@@ -8,17 +9,8 @@ npm install -g grunt-cli
 # Gulp
 npm install -g gulp
 
-# JSDoc CLIE
-npm install -g jsdoc
+# JSPM
+npm install -g jspm
 
-# JSHint
-npm install -g jshint
-
-# LESS
-npm install -g less
-
-# Yeoman (to)
-npm install -g yo
-
-# Optional web-development tools
-# npm install -g colorguard pageres tmi ucss
+# Bower
+npm install -g bower

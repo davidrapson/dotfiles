@@ -34,13 +34,11 @@ brew install grc
 brew install git
 brew install git-extras
 brew install git-flow
-brew install legit
-brew install tig
-brew install mercurial
 
 # JS
 brew install node
-brew install chromedriver phantomjs
+brew install phantomjs
+brew install chromedriver
 
 # Ruby
 # brew install rbenv
@@ -61,10 +59,8 @@ brew install chromedriver phantomjs
 
 # Install other useful binaries
 brew install the_silver_searcher
-brew install lynx
 brew install rename
 brew install tree
-brew install spark
 brew install trash
 brew install jq
 

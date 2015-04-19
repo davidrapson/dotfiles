@@ -132,18 +132,7 @@
     ##
     # Third-party
     ##
-    promote = !"git-promote"
-    wtf     = !"git-wtf"
-    rank-contributors = !"git-rank-contributors"
-    count   = !git shortlog -sn
-
-    # http://www.git-legit.org/
-    switch = !legit switch \"$@\"
-    branches = !legit branches
-    sprout = !legit sprout \"$@\"
-    harvest = !legit harvest \"$@\"
-    sync = !legit sync \"$@\"
-    graft = !legit graft \"$@\"
+    wtf = !"git-wtf"
 
 [color]
     ui = true
@@ -166,8 +155,6 @@
     prompt = false
 [diff]
     algorithm = patience
-[user]
-    name = David Rapson
 [credential]
     helper = osxkeychain
 [help]
@@ -180,8 +167,5 @@
     default = simple
 [merge]
     tool = opendiff
-[hub]
-    protocol = https
-
 [pull]
 	rebase = true
