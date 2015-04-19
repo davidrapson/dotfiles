@@ -51,7 +51,7 @@ unset config_files
 # Completions
 #######################################
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=($HOME/Developer/share/zsh-completions $fpath)
 
 #######################################
 # Rbenv
