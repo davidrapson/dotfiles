@@ -4,21 +4,16 @@
 # Config
 # ===============================================
 
-dotfiles   = Dir["dots/*"]
-zsh_themes = Dir["zsh/themes/*"]
-zsh_custom = "zsh/custom"
-
+dotfiles = Dir["dots/*"]
 
 # Dotfiles
 # ===============================================
 
 task :dotfiles do
-
   header "Copying dotfiles..."
   dotfiles.each do |file|
     sync_file file, "~/."
   end
-
 end
 
 # Default Tasks
@@ -33,13 +28,10 @@ end # default
 # ===============================================
 
 def header(message)
-
   puts "\n=================================================|\n"
   puts " #{message}"
   puts "=================================================|\n\n"
-
-end # header
-
+end
 
 def sync_file( file, prefix, options = {} )
 
@@ -62,4 +54,4 @@ def sync_file( file, prefix, options = {} )
     puts "Will #{sync_method} #{name} => #{prefix}#{name}"
   end
 
-end # sync_file
+end
