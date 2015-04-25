@@ -4,10 +4,14 @@
 
 # Wrap git with hub
 # brew install hub
-hub_path=$(which hub)
-if [[ -f $hub_path ]]
-then
+if (( $+commands[hub] )) ; then
   alias git=$hub_path
+fi
+
+# OMGLOG
+# gem install omglog
+if (( $+commands[omglog] )) ; then
+    alias gomg='omglog'
 fi
 
 # Aliases
