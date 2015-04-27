@@ -1,12 +1,18 @@
 #!/bin/sh
 
-# git file-changes david ".scala$" ".js$"
+# ❯ git file-changes "rapson" ".scala$" ".scala.html$" ".js$" ".scss$"
 # =>
-# Commits for pattern ".scala$"
-# +1695, -918, 777 total
+# Changes for pattern ".scala$"
+# +1695, -918, 777 total (1.84641:1 +/- ratio)
 #
-#  Commits for pattern ".js$"
-# +2550, -2241, 309 total
+# Changes for pattern ".scala.html$"
+# +6299, -5109, 1190 total (1.23292:1 +/- ratio)
+#
+# Changes for pattern ".js$"
+# +2550, -2241, 309 total (1.13788:1 +/- ratio)
+#
+# Changes for pattern ".scss$"
+# +11929, -11992, -63 total (0.994746:1 +/- ratio)
 
 author=$1; shift;
 patterns=( "$@" );
@@ -19,7 +25,10 @@ function get_commits() {
     git log --author=$1 --pretty=tformat: --numstat \
       | grep $2 \
       | awk '{ add += $1; subs += $2; loc += $1 - $2 }
-        END { printf "+%s, -%s, %s total (%s:1 +/- ratio)\n", add, subs, loc, calc add / subs }'
+        END {
+            printf "+%s, -%s, %s total (%s:1 +/- ratio)\n",
+            add, subs, loc, calc add / subs
+        }'
 }
 
 for i in "${patterns[@]}"
