@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# git file-changes david ".scala$" ".js$"
+# =>
+# Commits for pattern ".scala$"
+# +1695, -918, 777 total
+#
+#  Commits for pattern ".js$"
+# +2550, -2241, 309 total
+
+author=$1; shift;
+patterns=( "$@" );
+
+function get_commits() {
+    git log --author=$1 --pretty=tformat: --numstat \
+      | grep $2 \
+      | awk '{ add += $1; subs += $2; loc += $1 - $2; }
+        END { printf "+%s, -%s, %s total\n", add, subs, loc }'
+}
+
+for i in "${patterns[@]}"
+do
+    echo "\nCommits for pattern \"$i\"";
+    get_commits $author $i;
+done
