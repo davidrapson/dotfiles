@@ -20,6 +20,6 @@ function get_commits() {
 
 for i in "${patterns[@]}"
 do
-    echo "\nCommits for pattern \"$i\"";
+    echo "\nChanges for pattern \"$i\"";
     get_commits $author $i;
 done
