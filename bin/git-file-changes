@@ -17,17 +17,13 @@
 author=$1; shift;
 patterns=( "$@" );
 
-function calc() {
-    awk "BEGIN { print "$*" }"
-}
-
 function get_commits() {
     git log --author=$1 --pretty=tformat: --numstat \
       | grep $2 \
       | awk '{ add += $1; subs += $2; loc += $1 - $2 }
         END {
             printf "+%s, -%s, %s total (%s:1 +/- ratio)\n",
-            add, subs, loc, calc add / subs
+            add, subs, loc, sprintf("%.2f", add / subs)
         }'
 }
 
