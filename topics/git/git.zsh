@@ -43,3 +43,4 @@ function current_branch() {
 alias ggpull='git pull origin $(current_branch)'
 alias ggpur='git pull --rebase origin $(current_branch)'
 alias ggpush='git push origin $(current_branch)'
+alias gup='ggpull'
