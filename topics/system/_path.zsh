@@ -1,4 +1,6 @@
 # Homebrew & rbenv enhanced PATH
+PATH="/usr/local/bin:$PATH"; export PATH
+
 PATH="$HOME/Developer/bin:$HOME/Developer/sbin:$HOME/Developer/share/npm/bin:$HOME/.rbenv/bin:$PATH"; export PATH
 
 # Add coreutiles to PATH
