@@ -37,7 +37,6 @@ brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
-brew install homebrew/php/php55 --with-gmp
 
 # Version Control
 brew install git
@@ -60,17 +59,17 @@ brew install node
 # brew install mysql
 # brew install libmemcached
 # brew install php-version
-# brew install homebrew/php/php55 --with-gmp --with-fpm --with-apache --with-mysql
-# brew install homebrew/php/php54-xdebug
-# brew install homebrew/php/php54-xhprof
-# brew install homebrew/php/php54-mcrypt
-# brew install homebrew/php/php54-memcached
+# brew install homebrew/php/php56 --with-gmp --with-fpm --with-apache --with-mysql
+# brew install homebrew/php/php56-xdebug
+# brew install homebrew/php/php56-xhprof
+# brew install homebrew/php/php56-mcrypt
+# brew install homebrew/php/php56-memcached
 # brew install composer
 
 # Install other useful binaries
 brew install imagemagick --with-webp
 brew install the_silver_searcher
-brew install rename
+brew install ngrok
 brew install tree
 brew install jq
 
