@@ -1,13 +1,4 @@
-# Rakefile
-# ===============================================
-
-# Config
-# ===============================================
-
 dotfiles = Dir["dots/*"]
-
-# Dotfiles
-# ===============================================
 
 task :dotfiles do
   header "Copying dotfiles..."
@@ -16,16 +7,16 @@ task :dotfiles do
   end
 end
 
-# Default Tasks
-# ===============================================
+task :sublime do
+    header "Syncing Sublime Text settings"
+    source = File.expand_path("#{Dir.home}/Library/Application Support/Sublime Text 3/Packages/User")
+    target = File.join(File.dirname(__FILE__), "sublime-settings")
+    cp_r source, target, { :preserve => true }
+end
 
 task :default => [ :dotfiles ] do
   puts "\nAll Done."
 end # default
-
-
-# Helpers
-# ===============================================
 
 def header(message)
   puts "\n=================================================|\n"
