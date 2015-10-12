@@ -133,3 +133,9 @@ function compare-dirs() {
 function pman() {
   man -t "${1}" | open -f -a Preview
 }
+
+# GRC colorizes nifty unix tools all over the place
+if (( $+commands[grc] )) && (( $+commands[brew] ))
+then
+  source `brew --prefix`/etc/grc.bashrc
+fi
