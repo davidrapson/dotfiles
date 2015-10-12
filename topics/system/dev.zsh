@@ -27,7 +27,7 @@ alias numfmt="gnumfmt"
 
 function gzipped() {
   if hash gnumfmt 2>/dev/null; then
-    cat $1 | uglifyjs | gzip -9 | wc -c | gnumfmt --to=iec-i --suffix=B --format="%3f"
+    cat $1 | gzip -9 | wc -c | gnumfmt --to=iec-i --suffix=B --format="%3f"
   else
     echo "\nCouldn't find gnumfmt. You need to install coreutils first:\n"
     echo "brew install coreutils"
