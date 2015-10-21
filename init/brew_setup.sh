@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Install command-line tools using Homebrew.
+# You may also want to install brew cask for Apps.
 
 # Ask for the administrator password upfront.
 sudo -v
@@ -18,12 +21,15 @@ brew upgrade --all
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
 sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+
+# Install some other useful utilities like `sponge`.
+brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
 
-# Install ZSH
+# Install newer version of ZSH
 brew install zsh
 brew install zsh-completions
 
@@ -31,32 +37,44 @@ brew install zsh-completions
 brew install wget --with-iri
 
 # Install more recent versions of some OS X tools.
-brew tap homebrew/versions
-brew tap homebrew/dupes
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
 
-# Version Control
+
+# Install font tools.
+# brew tap bramstein/webfonttools
+# brew install sfnt2woff
+# brew install sfnt2woff-zopfli
+# brew install woff2
+
+# Development tools
 brew install git
 brew install git-extras
+brew install hub
+brew install awscli
+brew install nginx
+brew install android-sdk
+# brew install heroku-toolbelt
 
 # JavaScript
 brew install node
-
-# Ruby
-# brew install rbenv
-# brew install rbenv-gem-rehash
-# brew install ruby-build
+brew install phantomjs
 
 # Scala
 # brew install sbt
 # brew install scala
 # brew install typesafe-activator
 
+# Ruby
+# brew install rbenv
+# brew install rbenv-gem-rehash
+# brew install ruby-build
+
 # PHP & MySQL
 # brew install mysql
+# brew install memcached
 # brew install libmemcached
 # brew install php-version
 # brew install homebrew/php/php56 --with-gmp --with-fpm --with-apache --with-mysql
@@ -69,8 +87,12 @@ brew install node
 # Install other useful binaries
 brew install imagemagick --with-webp
 brew install the_silver_searcher
+brew install rename
+brew install htop-osx
 brew install ngrok
+brew install ngrep
 brew install tree
+brew install grc
 brew install jq
 
 # Remove outdated versions from the cellar
