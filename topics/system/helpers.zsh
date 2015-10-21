@@ -16,7 +16,7 @@ alias ccode='cd $HOME/Sites/code/'
 
 # Aliase search to the installed command
 # Prefer:
-# - The silver surfer (Ag)
+# - The silver surfer (ag)
 # - Ack
 # - or, finally: grep
 if (( $+commands[ag] )) ; then
@@ -24,7 +24,7 @@ if (( $+commands[ag] )) ; then
 elif (( $+commands[ack] )) ; then
   alias search='ag'
 else
-  alias searh='grep'
+  alias search='grep'
 fi
 
 # -a  -- list entries starting with .
