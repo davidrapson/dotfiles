@@ -51,16 +51,12 @@ unset config_files
 # Completions
 #######################################
 
-fpath=($HOME/Developer/share/zsh-completions $fpath)
+fpath=($(brew --prefix)/share/zsh-completions $fpath)
 
 #######################################
 # Rbenv
 #######################################
 
-if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
-
-#######################################
-# NVM
-#######################################
-
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+if which rbenv > /dev/null; then
+  eval "$(rbenv init - zsh)";
+fi
