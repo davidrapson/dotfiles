@@ -52,6 +52,7 @@ unset config_files
 #######################################
 
 fpath=($(brew --prefix)/share/zsh-completions $fpath)
+source $(brew --prefix)/share/zsh/site-functions/*
 
 #######################################
 # Rbenv
@@ -60,3 +61,14 @@ fpath=($(brew --prefix)/share/zsh-completions $fpath)
 if which rbenv > /dev/null; then
   eval "$(rbenv init - zsh)";
 fi
+
+#######################################
+# FASD
+#######################################
+
+fasd_cache="$HOME/.fasd-init"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init auto >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
