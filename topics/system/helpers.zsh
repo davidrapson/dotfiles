@@ -12,7 +12,11 @@ alias ...='cd ../..'
 alias ~="cd ~" # `cd` is probably faster to type though
 
 alias reload='source ~/.zshrc'
-alias ccode='cd $HOME/Sites/code/'
+
+if [[ $+commands[fasd] ]]; then
+  alias c='fasd_cd -d'
+  alias j='fasd_cd -d'
+fi
 
 # Aliase search to the installed command
 # Prefer:
@@ -120,7 +124,7 @@ function escape() {
   printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
   # print a newline unless we’re piping the output to another program
   if [ -t 1 ]; then
-          echo # newline
+    echo # newline
   fi
 }
 

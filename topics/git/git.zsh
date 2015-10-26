@@ -2,18 +2,6 @@
 # Git
 #######################################
 
-# Wrap git with hub
-# brew install hub
-if (( $+commands[hub] )) ; then
-  alias git=$hub_path
-fi
-
-# OMGLOG
-# gem install omglog
-if (( $+commands[omglog] )) ; then
-    alias gomg='omglog'
-fi
-
 # Aliases
 # More Git aliases in ~/.gitconfig
 # Inspired by Thoughtbot

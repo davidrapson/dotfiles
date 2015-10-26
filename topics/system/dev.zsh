@@ -33,3 +33,7 @@ function gzipped() {
     echo "brew install coreutils"
   fi
 }
+
+function ssnips() {
+  snips list | ag $1
+}

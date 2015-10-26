@@ -2,14 +2,10 @@
 # Network
 #######################################
 
-# Aliases
-# -------
-
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
 
 # View HTTP traffic
-# brew install ngrep
 alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
@@ -24,12 +20,6 @@ alias ps='ps -a -c -o pid,command -x'
 # File size
 alias fs="stat -f '%z bytes'"
 alias df="df -h"
-
-# Copy my public key to my clipboard
-alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '✔ Public key copied to clipboard.'"
-
-# Functions
-# ---------
 
 function ips() {
   # Show all interface IPs
@@ -50,7 +40,7 @@ function mx() {
 
 # Flush Directory Service cache
 # OSX seems to change the way this is done every version
-OSXVERSION=$(sw_vers | grep ProductVersion | cut -c 17-20)
+OSXVERSION=$(sw_vers | grep ProductVersion | ag -o "\d{2}.\d{2}")
 function flush() {
   if [[ OSXVERSION -eq '10.10' ]]; then
     sudo discoveryutil udnsflushcaches
@@ -61,10 +51,16 @@ function flush() {
   fi
 }
 
-# Resolve host (e.g., patu, neon) from url
+# Resolve host from url
 function resolve() {
   for n in $(dig +short $1)
   do
-      dig +short -x $n
+    dig +short -x $n
   done
+}
+
+# Copy my public key to my clipboard
+function pubkey() {
+  more $HOME/.ssh/id_rsa.pub | pbcopy
+  echo '✔ Public key copied to clipboard.'
 }
