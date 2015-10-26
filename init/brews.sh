@@ -2,9 +2,6 @@
 
 set -e
 
-# Install command-line tools using Homebrew.
-# You may also want to install brew cask for Apps.
-
 # Ask for the administrator password upfront.
 sudo -v
 
@@ -20,34 +17,31 @@ brew upgrade --all
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
-sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
-
+if [ ! -L /usr/local/bin/gsha256sum ]; then
+  sudo ln -sf /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+fi
 # Install some other useful utilities like `sponge`.
 brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
+# GRC colorizes unix tools
+brew install grc
 
 # Install newer version of ZSH
 brew install zsh
 brew install zsh-completions
-
-# Install `wget` with IRI support.
-brew install wget --with-iri
 
 # Install more recent versions of some OS X tools.
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
+brew install wget --with-iri
 
-
-# Install font tools.
-# brew tap bramstein/webfonttools
-# brew install sfnt2woff
-# brew install sfnt2woff-zopfli
-# brew install woff2
+# Install the silver searcher for search
+brew install the_silver_searcher
 
 # Development tools
 brew install git
@@ -56,44 +50,27 @@ brew install hub
 brew install awscli
 brew install nginx
 brew install android-sdk
-# brew install heroku-toolbelt
+brew install autoenv
 
-# JavaScript
-brew install node
-brew install phantomjs
-
-# Scala
-# brew install sbt
-# brew install scala
-# brew install typesafe-activator
-
-# Ruby
-# brew install rbenv
-# brew install rbenv-gem-rehash
-# brew install ruby-build
-
-# PHP & MySQL
-# brew install mysql
-# brew install memcached
-# brew install libmemcached
-# brew install php-version
-# brew install homebrew/php/php56 --with-gmp --with-fpm --with-apache --with-mysql
-# brew install homebrew/php/php56-xdebug
-# brew install homebrew/php/php56-xhprof
-# brew install homebrew/php/php56-mcrypt
-# brew install homebrew/php/php56-memcached
-# brew install composer
-
-# Install other useful binaries
-brew install imagemagick --with-webp
-brew install the_silver_searcher
-brew install rename
-brew install htop-osx
+# Network tools
+brew install nghttp2
 brew install ngrok
 brew install ngrep
+
+# Miscellaneous useful binaries
+brew install imagemagick --with-webp
+brew install rename
+brew install htop-osx
 brew install tree
-brew install grc
+brew install fasd
+brew install fzf
 brew install jq
+
+# Install font tools.
+brew tap bramstein/webfonttools
+brew install sfnt2woff
+brew install sfnt2woff-zopfli
+brew install woff2
 
 # Remove outdated versions from the cellar
 brew cleanup
