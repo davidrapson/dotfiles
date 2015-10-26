@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"AutoCompleteJS",
 		"Babel",
 		"Babel Snippets",
 		"Color Schemes by carlcalderon",
@@ -17,9 +18,11 @@
 		"JavaScript Completions",
 		"Jekyll",
 		"LESS",
+		"MarkdownEditing",
 		"nginx",
 		"Package Control",
 		"PHP-Twig",
+		"Play 2.0",
 		"Quick File Creator",
 		"Sass",
 		"SideBarEnhancements",
