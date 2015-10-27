@@ -47,6 +47,10 @@ brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
 brew install wget --with-iri
 
+# Manage services with `brew services`
+# Small wrapper around launchctl
+brew tap homebrew/services
+
 # Search tools
 brew install the_silver_searcher
 brew install sifter
@@ -55,10 +59,11 @@ brew install ack
 # Development tools
 brew install git
 brew install git-extras
-brew install awscli
 brew install nginx
-brew install android-sdk
+brew install awscli
 brew install autoenv
+brew install dnsmasq
+brew install android-sdk
 
 # Network tools
 brew install nghttp2

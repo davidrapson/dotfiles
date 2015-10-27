@@ -3,7 +3,7 @@
 ## Requirements
 
 - ZSH
-- Homebrew (optionaly, probably)
+- Homebrew
 - Rake (for setup)
 
 ## Setup
