@@ -46,7 +46,6 @@ brew install the_silver_searcher
 # Development tools
 brew install git
 brew install git-extras
-brew install hub
 brew install awscli
 brew install nginx
 brew install android-sdk
@@ -57,10 +56,14 @@ brew install nghttp2
 brew install ngrok
 brew install ngrep
 
+# Imaging tools
+brew install imagemagick --with-webp --with-fontconfig
+brew install ffmpeg --with-libass --with-fontconfig
+brew install giflossy
+
 # Miscellaneous useful binaries
-brew install imagemagick --with-webp
-brew install rename
 brew install htop-osx
+brew install rename
 brew install tree
 brew install fasd
 brew install fzf

@@ -23,8 +23,6 @@ function follow() {
   less +F $1
 }
 
-alias numfmt="gnumfmt"
-
 function gzipped() {
   if hash gnumfmt 2>/dev/null; then
     cat $1 | gzip -9 | wc -c | gnumfmt --to=iec-i --suffix=B --format="%3f"
@@ -32,8 +30,4 @@ function gzipped() {
     echo "\nCouldn't find gnumfmt. You need to install coreutils first:\n"
     echo "brew install coreutils"
   fi
-}
-
-function ssnips() {
-  snips list | ag $1
 }

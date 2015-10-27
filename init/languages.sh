@@ -14,7 +14,7 @@ brew update
 
 # JavaScript
 brew install node
-npm install -g snips-cli
+npm install -g gifify
 npm install -g babel
 npm install -g gulp
 npm install -g grunt-cli
