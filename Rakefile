@@ -30,7 +30,7 @@ end
 dotfiles = Dir["dots/*"]
 
 task :dotfiles do
-  header "Copying dotfiles…"
+  header "Symlinking dotfiles…"
   dotfiles.each do |file|
     sync_file file, "#{Dir.home}/."
   end

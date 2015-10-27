@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
-
-set -e
+set -euo pipefail
+IFS=$'\n\t'
 
 # Ask for the administrator password upfront.
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Check for Homebrew,
+# Install if we don't have it
+if test ! $(which brew); then
+  echo "Installing homebrew..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 # Make sure we’re using the latest Homebrew
 brew update
@@ -40,8 +47,10 @@ brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
 brew install wget --with-iri
 
-# Install the silver searcher for search
+# Search tools
 brew install the_silver_searcher
+brew install sifter
+brew install ack
 
 # Development tools
 brew install git

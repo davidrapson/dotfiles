@@ -1,6 +1,6 @@
 *.sw*
 *private*
 .DS_Store
-sublime/*.cache
-sublime/*.last-run
-sublime/*.*-ca-bundle
+*.cache
+*.last-run
+*.*-ca-bundle
