@@ -13,7 +13,14 @@ CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"; export CONFI
 unsetopt RM_STAR_SILENT
 
 #######################################
-# TOPICS
+# Prompt
+#######################################
+
+autoload -U promptinit && promptinit
+prompt pure
+
+#######################################
+# Topics
 #######################################
 
 # shortcut to this dotfiles path is $ZSH

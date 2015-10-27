@@ -8,8 +8,8 @@
 
 ## Setup
 
-- Fork this repo
-- `git clone git://github.com/YOURUSERNAME/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
+- `git clone git://github.com/davidrapson/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
+- `git submodule init`
 - `rake`
 
 See [init/README.md](init/README.md) for detailed instructions.

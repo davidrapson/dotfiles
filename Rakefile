@@ -16,7 +16,7 @@ def sync_file( file, prefix, options = {} )
   sync_method = ( options[:copy] ) ? 'copy' : 'symlink'
 
   if !options[:dry_run]
-    rm_rf target if File.exists?(target)
+    rm target if File.exists?(target)
     if options[:copy]
       cp_r source, target, { :preserve => true }
     else
@@ -27,13 +27,25 @@ def sync_file( file, prefix, options = {} )
   end
 end
 
-dotfiles = Dir["dots/*"]
+def relative_symlink( path, target )
+  source = File.join(File.dirname(__FILE__), path)
+  rm target if File.exists?(target)
+  ln_s source, target
+end
 
 task :dotfiles do
   header "Symlinking dotfiles…"
+  dotfiles = Dir["dots/*"]
   dotfiles.each do |file|
     sync_file file, "#{Dir.home}/."
   end
+end
+
+task :pure do
+  header "Installing Pure prompt"
+  zfunctions = File.expand_path("/usr/local/share/zsh/site-functions/")
+  relative_symlink "pure/pure.zsh", File.join(zfunctions, "prompt_pure_setup")
+  relative_symlink "pure/async.zsh", File.join(zfunctions, "async")
 end
 
 task :sublime do
@@ -43,6 +55,6 @@ task :sublime do
     cp_r source, target, { :preserve => true }
 end
 
-task :default => [ :dotfiles ] do
+task :default => [ :dotfiles, :pure ] do
   puts "\nAll Done."
 end
