@@ -46,6 +46,7 @@ Sync:
 
 ```
 cd ~/.dotfiles
+git submodule update --init
 rake
 ```
 
@@ -82,6 +83,8 @@ git config --global user.email "email@example.com"
 git config --global github.user yourusername
 git config --global github.token your_token_here
 ```
+
+**See also:** https://help.github.com/articles/which-remote-url-should-i-use/#cloning-with-https-recommended
 
 ## Sublime Install Checklist
 
