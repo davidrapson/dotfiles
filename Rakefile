@@ -52,6 +52,7 @@ task :sublime do
     header "Syncing Sublime Text settings"
     source = File.expand_path("#{Dir.home}/Library/Application Support/Sublime Text 3/Packages/User")
     target = File.join(File.dirname(__FILE__), "sublime")
+    rm_rf target if File.exists?(target)
     cp_r source, target, { :preserve => true }
 end
 
