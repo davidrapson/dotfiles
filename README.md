@@ -9,7 +9,7 @@
 ## Setup
 
 - `git clone git://github.com/davidrapson/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
-- `git submodule init`
+- `git submodule update --init`
 - `rake`
 
 See [init/README.md](init/README.md) for detailed instructions.
