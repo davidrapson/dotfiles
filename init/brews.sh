@@ -22,7 +22,6 @@ brew update
 brew upgrade --all
 
 # Install GNU core utilities (those that come with OS X are outdated).
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
 if [ ! -L /usr/local/bin/gsha256sum ]; then
   sudo ln -sf /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
@@ -56,9 +55,12 @@ brew install the_silver_searcher
 brew install sifter
 brew install ack
 
-# Development tools
+# Version control (Git)
 brew install git
 brew install git-extras
+brew install bfg
+
+# Development environment
 brew install nginx
 brew install awscli
 brew install autoenv
@@ -69,6 +71,8 @@ brew install android-sdk
 brew install nghttp2
 brew install ngrok
 brew install ngrep
+brew install httpie
+brew install httrack
 
 # Imaging tools
 brew install imagemagick --with-webp --with-fontconfig
@@ -78,6 +82,7 @@ brew install giflossy
 # Miscellaneous useful binaries
 brew install htop-osx
 brew install rename
+brew install tmux
 brew install tree
 brew install fasd
 brew install fzf

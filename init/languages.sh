@@ -48,13 +48,11 @@ brew install python3
 pip install --upgrade pip setuptools wheel virtualenv
 
 # Ruby
-brew install rbenv
-brew install rbenv-gem-rehash
-brew install ruby-build
-
-# Misc. Languages
-brew install python
-brew install go
+brew install ruby
+# If doing more than casual ruby:
+# brew install rbenv
+# brew install rbenv-gem-rehash
+# brew install ruby-build
 
 # Remove outdated versions from the cellar
 brew cleanup
