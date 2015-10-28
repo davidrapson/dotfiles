@@ -2,6 +2,13 @@
 # ZSH
 #######################################
 
+# shortcut to this dotfiles path is $ZSH
+ZSH=$HOME/.dotfiles; export ZSH
+
+# Cache brew prefix
+# Calling in a subshel each time is very slow.
+BREW_PREFIX=$(brew --prefix); export BREW_PREFIX
+
 # Use 256 colours
 TERM=xterm-256color
 
@@ -20,62 +27,74 @@ autoload -U promptinit && promptinit
 prompt pure
 
 #######################################
+# GRC
+#######################################
+
+# GRC colorizes unix tools
+if (( $+commands[grc] )); then
+  source "$BREW_PREFIX/etc/grc.bashrc"
+fi
+
+#######################################
+# Path
+#######################################
+
+# Make sure /usr/local (Homebrew) comes first
+PATH=$BREW_PREFIX/bin:$BREW_PREFIX/sbin:$PATH; export PATH
+
+# NPM & rbenv enhanced PATH
+PATH=$BREW_PREFIX/share/npm/bin:$HOME/.rbenv/bin:$PATH; export PATH
+
+# Add coreutiles to PATH
+PATH=$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH; export PATH
+
+# Add dotfile binaries to PATH
+PATH="$ZSH/bin:$PATH"; export PATH
+
+# For node, so modules are picked up
+NODE_PATH="$BREW_PREFIX/lib/node_modules"; export NODE_PATH
+
+# Add custom man pages to PATH
+MANPATH="$BREW_PREFIX/share/man:$MANPATH"; export MANPATH
+
+# Set RBENV_ROOT
+RBENV_ROOT="$BREW_PREFIX/var/rbenv"; export RBENV_ROOT
+
+#######################################
 # Topics
 #######################################
 
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+function() {
+  # all of our zsh files
+  typeset -U config_files
+  local config_files=($HOME/.dotfiles/topics/**/*.zsh)
 
-# all of our zsh files
-typeset -U config_files
-config_files=($ZSH/topics/**/*.zsh)
+  # Load everything but the completion files
+  for file in ${config_files:#*/completion.zsh}; do
+    source $file
+  done
 
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  source $file
-done
+  # Completions
+  fpath=($BREW_PREFIX/share/zsh-completions $fpath)
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
-done
+  # Initialize autocompletion
+  autoload -U compinit
+  compinit
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
-
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source $file
-done
-
-unset config_files
-
-#######################################
-# Completions
-#######################################
-
-fpath=($(brew --prefix)/share/zsh-completions $fpath)
-source $(brew --prefix)/share/zsh/site-functions/*
-
-#######################################
-# Rbenv
-#######################################
-
-if which rbenv > /dev/null; then
-  eval "$(rbenv init - zsh)";
-fi
+  # Load every completion after autocomplete loads
+  for file in ${(M)config_files:#*/completion.zsh}; do
+    source $file
+  done
+}
 
 #######################################
 # FASD
 #######################################
 
-fasd_cache="$HOME/.fasd-init"
-if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-  fasd --init auto >| "$fasd_cache"
-fi
-source "$fasd_cache"
-unset fasd_cache
+function () {
+  local fasd_cache="$HOME/.fasd-init"
+  if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+    fasd --init auto >| "$fasd_cache"
+  fi
+  source "$fasd_cache"
+}
