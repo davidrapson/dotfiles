@@ -8,13 +8,12 @@
 # http://robots.thoughtbot.com/post/4747482956/streamline-your-git-workflow-with-aliases
 alias gc='git commit'
 alias gco='git checkout'
-alias gau='git add --update'
 alias gca='git commit --amend'
-alias gl='git log --pretty="format:%C(yellow)%h %d%C(reset) %C(black)%s%C(reset) %C(yellow) %an %ar%C(reset)" --graph'
+alias gcar='git commit --amend --reset-author'
 alias gp='git add --patch'
 alias gcp='git cherry-pick'
 alias gst='git status --branch --short'
-alias gra='git commit --amend --reset-author'
+alias gl='git log --pretty="format:%C(cyan)%h %d%C(reset) %s %C(black) %an %ar%C(reset)" --graph'
 
 # Ungit
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
