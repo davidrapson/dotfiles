@@ -58,6 +58,7 @@ brew install ack
 # Version control (Git)
 brew install git
 brew install git-extras
+brew install git-fixup
 brew install bfg
 
 # Development environment

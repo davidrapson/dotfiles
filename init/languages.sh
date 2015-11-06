@@ -45,6 +45,7 @@ brew install typesafe-activator
 # Python
 brew install python
 brew install python3
+brew install bpython
 pip install --upgrade pip setuptools wheel virtualenv
 
 # Ruby
