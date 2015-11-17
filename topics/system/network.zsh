@@ -35,7 +35,7 @@ function mx() {
 
 # Flush Directory Service cache
 # OSX seems to change the way this is done every version
-OSXVERSION=$(sw_vers | grep ProductVersion | ag -o "\d{2}.\d{2}")
+OSXVERSION=$(sw_vers -productVersion)
 function flush() {
   if [[ OSXVERSION -eq '10.10' ]]; then
     sudo discoveryutil udnsflushcaches
