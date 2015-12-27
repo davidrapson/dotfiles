@@ -16,7 +16,7 @@ brew update
 brew install node
 npm install -g gifify
 npm install -g babel
-npm install -g gulp
+npm install -g gulp-cli
 npm install -g grunt-cli
 npm install -g jspm
 npm install -g bower

@@ -52,7 +52,6 @@ brew tap homebrew/services
 
 # Search tools
 brew install the_silver_searcher
-brew install sifter
 brew install ack
 
 # Version control (Git)
@@ -83,9 +82,11 @@ brew install giflossy
 # Miscellaneous useful binaries
 brew install htop-osx
 brew install rename
+brew install httpie
 brew install tmux
 brew install tree
 brew install fasd
+brew install entr
 brew install fzf
 brew install jq
 
