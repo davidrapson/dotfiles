@@ -34,16 +34,8 @@ function mx() {
 }
 
 # Flush Directory Service cache
-# OSX seems to change the way this is done every version
-OSXVERSION=$(sw_vers -productVersion)
 function flush() {
-  if [[ OSXVERSION -eq '10.10' ]]; then
-    sudo discoveryutil udnsflushcaches
-  elif [[ OSXVERSION -eq '10.9' ]]; then
-    dscacheutil -flushcache; sudo killall -HUP mDNSResponder
-  else
-    sudo killall -HUP mDNSResponder
-  fi
+  sudo killall -HUP mDNSResponder
 }
 
 # Resolve host from url
