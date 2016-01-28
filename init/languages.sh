@@ -14,28 +14,27 @@ brew update
 
 # JavaScript
 brew install node
-npm install -g gifify
-npm install -g babel
-npm install -g gulp-cli
-npm install -g grunt-cli
-npm install -g jspm
-npm install -g bower
-npm install -g david
-npm install -g xo
+# npm install -g babel
+# npm install -g gulp-cli
+# npm install -g grunt-cli
+# npm install -g jspm
+# npm install -g bower
+# npm install -g david
+# npm install -g xo
 
 # PHP, Memcached, MariaDB
 # Remember to follow steps in brew info for each and run
 # mysql_secure_installation for MariaDB
-brew install homebrew/php/php56 --with-gmp --with-fpm --with-apache --with-mysql
-brew install homebrew/php/php56-xdebug
-brew install homebrew/php/php56-xhprof
-brew install homebrew/php/php56-mcrypt
-brew install homebrew/php/php56-tidy
-brew install memcached libmemcached
-brew install homebrew/php/php56-memcached
-brew install composer
-brew install boris
-brew install mariadb
+# brew install homebrew/php/php56 --with-gmp --with-fpm --with-apache --with-mysql
+# brew install homebrew/php/php56-xdebug
+# brew install homebrew/php/php56-xhprof
+# brew install homebrew/php/php56-mcrypt
+# brew install homebrew/php/php56-tidy
+# brew install memcached libmemcached
+# brew install homebrew/php/php56-memcached
+# brew install composer
+# brew install boris
+# brew install mariadb
 
 # Scala
 brew install sbt
@@ -45,8 +44,8 @@ brew install typesafe-activator
 # Python
 brew install python
 brew install python3
-brew install bpython
-pip install --upgrade pip setuptools wheel virtualenv
+# brew install bpython
+# pip install --upgrade pip setuptools wheel virtualenv
 
 # Ruby
 brew install ruby
