@@ -133,6 +133,7 @@
     # Third-party
     ##
     wtf = !"git-wtf"
+    dsf = "!git diff --color $@ | diff-so-fancy"
 
 [color]
     ui = true
