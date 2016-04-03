@@ -1,6 +1,7 @@
 *.sw*
 *private*
 .DS_Store
+.npmrc
 
 # Sublime
 Package Control.merged-ca-bundle
