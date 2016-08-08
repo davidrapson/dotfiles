@@ -21,6 +21,10 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade --all
 
+# ===============================================
+# Utilities
+# ===============================================
+
 # Install GNU core utilities (those that come with OS X are outdated).
 brew install coreutils
 if [ ! -L /usr/local/bin/gsha256sum ]; then
@@ -57,18 +61,17 @@ brew install ack
 # Version control (Git)
 brew install git
 brew install git-extras
-brew install git-fixup
+brew install diff-so-fancy
 brew install bfg
 
 # Development environment
 brew install nginx
-brew install awscli
-brew install autoenv
 brew install dnsmasq
+brew install awscli
+brew install heroku
 brew install android-sdk
 
 # Network tools
-brew install nghttp2
 brew install ngrok
 brew install ngrep
 brew install httpie
@@ -82,7 +85,6 @@ brew install giflossy
 # Miscellaneous useful binaries
 brew install htop-osx
 brew install rename
-brew install httpie
 brew install tmux
 brew install tree
 brew install fasd
@@ -90,11 +92,50 @@ brew install entr
 brew install fzf
 brew install jq
 
-# Install font tools.
-brew tap bramstein/webfonttools
-brew install sfnt2woff
-brew install sfnt2woff-zopfli
-brew install woff2
+# ===============================================
+# Languages
+# ===============================================
+
+# JavaScript
+brew install node4-lts
+# npm install -g david
+# npm install -g greenkeeper
+# npm install -g jspm-check-updates
+# npm install -g np
+# npm install -g svgo
+
+# PHP, Memcached, MariaDB
+# Remember to follow steps in brew info for each and run
+# mysql_secure_installation for MariaDB
+# brew install homebrew/php/php56 --with-gmp --with-fpm --with-apache --with-mysql
+# brew install homebrew/php/php56-xdebug
+# brew install homebrew/php/php56-xhprof
+# brew install homebrew/php/php56-mcrypt
+# brew install homebrew/php/php56-tidy
+# brew install memcached libmemcached
+# brew install homebrew/php/php56-memcached
+# brew install composer
+# brew install boris
+# brew install mariadb
+
+# Scala
+# brew install sbt
+# brew install scala
+# brew install typesafe-activator
+
+# Python
+brew install python
+brew install python3
+# brew install bpython
+# pip install --upgrade pip setuptools wheel virtualenv
+
+# Ruby
+brew install ruby
+# If doing more than casual ruby:
+# brew install rbenv
+# brew install rbenv-gem-rehash
+# brew install ruby-build
+
 
 # Remove outdated versions from the cellar
 brew cleanup
