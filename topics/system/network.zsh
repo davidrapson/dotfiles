@@ -16,6 +16,10 @@ alias ps='ps -a -c -o pid,command -x'
 alias fs="stat -f '%z bytes'"
 alias df="df -h"
 
+function portcheck() {
+   sudo lsof -i :${1:-80}
+}
+
 function ips() {
   # Show all interface IPs
   ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'
