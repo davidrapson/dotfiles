@@ -1,9 +1,0 @@
-<snippet>
-  <content><![CDATA[
-#!/usr/bin/env bash
-set -euo pipefail
-IFS=\$'\n\t'
-]]></content>
-  <tabTrigger>!bash</tabTrigger>
-  <scope>source.shell</scope>
-</snippet>
