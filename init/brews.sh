@@ -97,12 +97,11 @@ brew install jq
 # ===============================================
 
 # JavaScript
-brew install node4-lts
-# npm install -g david
-# npm install -g greenkeeper
-# npm install -g jspm-check-updates
-# npm install -g np
-# npm install -g svgo
+# https://github.com/creationix/nvm
+brew install node6-lts
+# npm install -g np david greenkeeper svgo uglify-js
+# npm install -g jspm-check-updates webpack-bundle-size-analyzer source-map-explorer
+# npm install -g alfred-emoj alfred-npms
 
 # PHP, Memcached, MariaDB
 # Remember to follow steps in brew info for each and run
@@ -124,13 +123,13 @@ brew install node4-lts
 # brew install typesafe-activator
 
 # Python
-brew install python
-brew install python3
+# brew install python
+# brew install python3
 # brew install bpython
 # pip install --upgrade pip setuptools wheel virtualenv
 
 # Ruby
-brew install ruby
+# brew install ruby
 # If doing more than casual ruby:
 # brew install rbenv
 # brew install rbenv-gem-rehash

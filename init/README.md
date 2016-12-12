@@ -8,7 +8,7 @@ Xcode, Iterm 2, Sublime Text 3, Sequel Pro, Chrome
 ## Setup iTerm
 
 - Install [Hack](https://github.com/chrissimpkins/Hack) font
-- Install Solarized Dark Higher Contrast [iTerm colour schemes](https://github.com/bahlo/iterm-colors) 
+- Install Solarized Dark Higher Contrast [iTerm colour schemes](https://github.com/bahlo/iterm-colors)
 
 ## Xcode Command Line Tools
 
@@ -50,10 +50,10 @@ git submodule update --init
 rake
 ```
 
-Run OSX setup (will need restart)
+Run macOS setup (will need restart)
 
 ```
-init/osx.zh
+init/macos.zh
 ```
 
 Install tools:
