@@ -10,7 +10,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Check for Homebrew,
 # Install if we don't have it
-if test ! $(which brew); then
+if test ! "$(which brew)"; then
   echo "Installing homebrew..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
@@ -70,9 +70,9 @@ brew install dnsmasq
 brew install awscli
 brew install heroku
 brew install android-sdk
+brew install shellcheck
 
 # Network tools
-brew install ngrok
 brew install ngrep
 brew install httpie
 brew install httrack
@@ -98,7 +98,7 @@ brew install jq
 
 # JavaScript
 # https://github.com/creationix/nvm
-brew install node6-lts
+brew install node@6
 # npm install -g np david greenkeeper svgo uglify-js
 # npm install -g jspm-check-updates webpack-bundle-size-analyzer source-map-explorer
 # npm install -g alfred-emoj alfred-npms
@@ -124,7 +124,6 @@ brew install node6-lts
 
 # Python
 # brew install python
-# brew install python3
 # brew install bpython
 # pip install --upgrade pip setuptools wheel virtualenv
 
@@ -135,6 +134,8 @@ brew install node6-lts
 # brew install rbenv-gem-rehash
 # brew install ruby-build
 
-
 # Remove outdated versions from the cellar
 brew cleanup
+
+echo "Intall nvm from https://github.com/creationix/nvm"
+echo "Install ngrok from https://ngrok.com/"
