@@ -16,6 +16,15 @@ alias ps='ps -a -c -o pid,command -x'
 alias fs="stat -f '%z bytes'"
 alias df="df -h"
 
+function gzipped() {
+  if hash gnumfmt 2>/dev/null; then
+    cat $1 | gzip -9 | wc -c | gnumfmt --to=iec-i --suffix=B --format="%3f"
+  else
+    echo "\nCouldn't find gnumfmt. You need to install coreutils first:\n"
+    echo "brew install coreutils"
+  fi
+}
+
 function portcheck() {
    sudo lsof -i :${1:-80}
 }
@@ -54,4 +63,17 @@ function resolve() {
 function pubkey() {
   more $HOME/.ssh/id_rsa.pub | pbcopy
   echo '✔ Public key copied to clipboard.'
+}
+
+# Start up a local server for the current directory.
+# Defaults to port 8000
+function local_server() {
+  open "http://localhost:${1:-8000}" && python -m SimpleHTTPServer ${1:-8000}
+}
+
+# Start up a public server for the current directory using ngrok
+# brew install ngrok
+function public_server() {
+  python -m SimpleHTTPServer ${1:-8080} &
+  ngrok ${1:-8080}
 }

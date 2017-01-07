@@ -35,13 +35,14 @@ fi
 # -m  -- comma separated
 alias llm='ls -am'
 
-# Aliasing eachdir like this allows you to use aliases/functions as commands.
-alias eachdir=". eachdir"
-
 # mkdir + cd = take
 function take() {
   mkdir $1
   cd $1
+}
+
+function follow() {
+  less +F $1
 }
 
 # Recursively remove .DS_Store files

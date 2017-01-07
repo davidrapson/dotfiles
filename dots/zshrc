@@ -19,6 +19,9 @@ CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"; export CONFI
 # https://github.com/sindresorhus/guides/blob/master/how-not-to-rm-yourself.md
 unsetopt RM_STAR_SILENT
 
+# Always use vim as the visual editor
+VISUAL=vim; export VISUAL
+
 #######################################
 # Prompt
 #######################################
