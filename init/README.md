@@ -17,21 +17,6 @@ xcode-select --install
 Xcode > Preferences > Downloads > Command Line Tools
 ```
 
-## Set Hostname
-
-```
-sudo scutil --set HostName blah
-```
-
-## Homebrew
-
-```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-ln -s "$(brew --prefix)/Library/Contributions/brew_zsh_completion.zsh" /usr/local/share/zsh/site-functions
-```
-
-**To fix El Capitan**: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/El_Capitan_and_Homebrew.md
-
 ## Setup ZSH
 
 ```
@@ -53,17 +38,14 @@ rake
 Run macOS setup (will need restart)
 
 ```
-init/macos.zh
+init/macos
 ```
 
 Install tools:
 
 ```
-# Install essential Homebrew tools
-# It's worth running brew info on each brew and following any extra steps
-init/brews.sh
-# Install programming language specific tools
-init/languages.sh
+# Install Homebrew and run:
+init/brews
 ```
 
 ## Setup Github/SSH
