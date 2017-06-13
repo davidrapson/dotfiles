@@ -58,13 +58,11 @@ more ~/.ssh/id_rsa.pub | pbcopy
 
 # Test connection
 ssh -T git@github.com
-
-# Set git config values
-git config --global user.name "Your Name"
-git config --global user.email "email@example.com"
-git config --global github.user yourusername
-git config --global github.token your_token_here
 ```
+
+## Set global environment variables for Git
+
+See: https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables
 
 **See also:** https://help.github.com/articles/which-remote-url-should-i-use/#cloning-with-https-recommended
 

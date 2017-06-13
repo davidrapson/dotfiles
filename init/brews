@@ -62,15 +62,15 @@ brew install ack
 brew install git
 brew install git-extras
 brew install diff-so-fancy
-brew install bfg
+# brew install bfg
 
 # Development environment
-brew install nginx
-brew install dnsmasq
-brew install awscli
-brew install heroku
-brew install android-sdk
 brew install shellcheck
+# brew install nginx
+# brew install dnsmasq
+# brew install awscli
+# brew install heroku
+# brew install android-sdk
 
 # Network tools
 brew install ngrep
@@ -78,9 +78,9 @@ brew install httpie
 brew install httrack
 
 # Imaging tools
-brew install imagemagick --with-webp --with-fontconfig
-brew install ffmpeg --with-libass --with-fontconfig
-brew install giflossy
+# brew install imagemagick --with-webp --with-fontconfig
+# brew install ffmpeg --with-libass --with-fontconfig
+# brew install giflossy
 
 # Miscellaneous useful binaries
 brew install htop-osx
@@ -98,7 +98,7 @@ brew install jq
 
 # JavaScript
 # https://github.com/creationix/nvm
-brew install node@6
+# brew install node@6
 # npm install -g np david greenkeeper svgo uglify-js
 # npm install -g jspm-check-updates webpack-bundle-size-analyzer source-map-explorer
 # npm install -g alfred-emoj alfred-npms

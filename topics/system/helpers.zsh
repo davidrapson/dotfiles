@@ -10,7 +10,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ~='cd ~' # `cd` is probably faster to type though
 
-if [[ $+commands[fasd] ]]; then
+if (( $+commands[fasd] )); then
   alias c='fasd_cd -d'
   alias j='fasd_cd -d'
 fi

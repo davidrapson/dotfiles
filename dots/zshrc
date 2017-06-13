@@ -95,7 +95,7 @@ function() {
 #######################################
 
 function () {
-  if [[ $+commands[fasd] ]]; then
+  if (( $+commands[fasd] )); then
     local fasd_cache="$HOME/.fasd-init"
     if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
       fasd --init auto >| "$fasd_cache"
