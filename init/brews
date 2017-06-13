@@ -39,16 +39,10 @@ brew install gnu-sed --with-default-names
 # GRC colorizes unix tools
 brew install grc
 
-# Install newer version of ZSH
+# Install more recent versions of some OS X tools.
 brew install zsh
 brew install zsh-completions
-
-# Install more recent versions of some OS X tools.
 brew install vim --override-system-vi
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
-brew install wget --with-iri
 
 # Manage services with `brew services`
 # Small wrapper around launchctl
@@ -70,7 +64,6 @@ brew install shellcheck
 # brew install dnsmasq
 # brew install awscli
 # brew install heroku
-# brew install android-sdk
 
 # Network tools
 brew install ngrep
@@ -98,24 +91,9 @@ brew install jq
 
 # JavaScript
 # https://github.com/creationix/nvm
-# brew install node@6
 # npm install -g np david greenkeeper svgo uglify-js
 # npm install -g jspm-check-updates webpack-bundle-size-analyzer source-map-explorer
 # npm install -g alfred-emoj alfred-npms
-
-# PHP, Memcached, MariaDB
-# Remember to follow steps in brew info for each and run
-# mysql_secure_installation for MariaDB
-# brew install homebrew/php/php56 --with-gmp --with-fpm --with-apache --with-mysql
-# brew install homebrew/php/php56-xdebug
-# brew install homebrew/php/php56-xhprof
-# brew install homebrew/php/php56-mcrypt
-# brew install homebrew/php/php56-tidy
-# brew install memcached libmemcached
-# brew install homebrew/php/php56-memcached
-# brew install composer
-# brew install boris
-# brew install mariadb
 
 # Scala
 # brew install sbt

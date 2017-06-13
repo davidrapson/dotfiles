@@ -149,9 +149,6 @@ defaults write com.apple.frameworks.diskimages skip-verify -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
-# Enable the MacBook Air SuperDrive on any Mac
-sudo nvram boot-args="mbasd=1"
-
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
