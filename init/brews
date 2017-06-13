@@ -91,7 +91,7 @@ brew install jq
 
 # JavaScript
 # https://github.com/creationix/nvm
-# npm install -g np david greenkeeper svgo uglify-js
+# npm install -g np davids svgo uglify-js
 # npm install -g alfred-emoj alfred-npms
 
 # Scala
