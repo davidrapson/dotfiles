@@ -45,23 +45,14 @@ fi
 # Make sure /usr/local (Homebrew) comes first
 PATH=$BREW_PREFIX/bin:$BREW_PREFIX/sbin:$PATH; export PATH
 
-# NPM & rbenv enhanced PATH
-PATH=$BREW_PREFIX/share/npm/bin:$HOME/.rbenv/bin:$PATH; export PATH
-
 # Add coreutiles to PATH
 PATH=$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH; export PATH
 
 # Add dotfile binaries to PATH
 PATH="$ZSH/bin:$PATH"; export PATH
 
-# For node, so modules are picked up
-NODE_PATH="$BREW_PREFIX/lib/node_modules"; export NODE_PATH
-
-# Add custom man pages to PATH
-MANPATH="$BREW_PREFIX/share/man:$MANPATH"; export MANPATH
-
-# Set RBENV_ROOT
-RBENV_ROOT="$BREW_PREFIX/var/rbenv"; export RBENV_ROOT
+# Set GEM_HOME for Ruby gems
+export GEM_HOME="$HOME/.gems"
 
 #######################################
 # Topics
