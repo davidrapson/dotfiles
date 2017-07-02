@@ -42,17 +42,21 @@ fi
 # Path
 #######################################
 
-# Make sure /usr/local (Homebrew) comes first
+# Add homebrew bins to path
 PATH=$BREW_PREFIX/bin:$BREW_PREFIX/sbin:$PATH; export PATH
 
+# Set GEM_HOME for Ruby gems
+export GEM_HOME="$HOME/.gems"
+
+# Add custom gem home to path
+PATH=$PATH:$GEM_HOME/bin;
+
 # Add coreutiles to PATH
-PATH=$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH; export PATH
+PATH=$PATH:$BREW_PREFIX/opt/coreutils/libexec/gnubin; export PATH
 
 # Add dotfile binaries to PATH
 PATH="$ZSH/bin:$PATH"; export PATH
 
-# Set GEM_HOME for Ruby gems
-export GEM_HOME="$HOME/.gems"
 
 #######################################
 # Topics
