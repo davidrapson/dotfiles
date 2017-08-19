@@ -48,22 +48,23 @@ brew install vim --override-system-vi
 # Small wrapper around launchctl
 brew tap homebrew/services
 
-# Search tools
+# Common useful binaries
+brew install shellcheck
 brew install the_silver_searcher
 brew install ack
+brew install rename
+brew install htop
+brew install tree
+brew install fasd
+brew install entr
+brew install fzf
+brew install jq
 
 # Version control (Git)
 brew install git
 brew install git-extras
 brew install diff-so-fancy
 # brew install bfg
-
-# Development environment
-brew install shellcheck
-# brew install nginx
-# brew install dnsmasq
-# brew install awscli
-# brew install heroku
 
 # Network tools
 brew install ngrep
@@ -75,24 +76,23 @@ brew install httrack
 # brew install ffmpeg --with-libass --with-fontconfig
 # brew install giflossy
 
-# Miscellaneous useful binaries
-brew install htop-osx
-brew install rename
-brew install tmux
-brew install tree
-brew install fasd
-brew install entr
-brew install fzf
-brew install jq
-
 # ===============================================
 # Languages
 # ===============================================
 
+# Development environment
+# brew install nginx
+# brew install dnsmasq
+# brew install awscli
+# brew install heroku
+
 # JavaScript
 # https://github.com/creationix/nvm
-# npm install -g np davids svgo uglify-js
-# npm install -g alfred-emoj alfred-npms
+# brew install yarn --without-node
+# npm install -g np david
+# npm install -g svgo uglify-js
+# npm install -g typescript source-map-explorer
+
 
 # Scala
 # brew install sbt
@@ -111,8 +111,20 @@ brew install jq
 # brew install rbenv-gem-rehash
 # brew install ruby-build
 
+# Go
+# brew install go
+
+# Haskell
+# brew cask install haskell-platform
+
+# Clojure
+# brew install leiningen
+
+# Elixir
+# brew install elixir
+
+# Elm
+# brew cask install caskroom/cask/elm-platform
+
 # Remove outdated versions from the cellar
 brew cleanup
-
-echo "Intall nvm from https://github.com/creationix/nvm"
-echo "Install ngrok from https://ngrok.com/"

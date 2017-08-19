@@ -1,16 +1,12 @@
 
 # Clean Setup
 
-## Apps
-
-Xcode, Iterm 2, Sublime Text 3, Sequel Pro, Chrome
-
 ## Setup iTerm
 
 - Install [Hack](https://github.com/chrissimpkins/Hack) font
 - Install Solarized Dark Higher Contrast [iTerm colour schemes](https://github.com/bahlo/iterm-colors)
 
-## Xcode Command Line Tools
+## Install Xcode
 
 ```
 xcode-select --install
@@ -66,41 +62,3 @@ See: https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables
 
 **See also:** https://help.github.com/articles/which-remote-url-should-i-use/#cloning-with-https-recommended
 
-## Sublime Install Checklist
-
-- Install binary
-- Install Package Control
-- Sync user preferences
-
-
-## Setup Dnsmasq
-
-Based on: http://passingcuriosity.com/2013/dnsmasq-dev-osx/
-
-```
-brew install dnsmasq
-# Copy the default configuration file.
-cp $(brew list dnsmasq | grep /dnsmasq.conf.example$) /usr/local/etc/dnsmasq.conf
-# Copy the daemon configuration file into place.
-sudo cp $(brew list dnsmasq | grep /homebrew.mxcl.dnsmasq.plist$) /Library/LaunchDaemons/
-# Start Dnsmasq automatically.
-sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
-# Add to /usr/local/etc/dnsmasq.conf
-address=/site/127.0.0.1
-# Restart
-sudo launchctl stop homebrew.mxcl.dnsmasq
-sudo launchctl start homebrew.mxcl.dnsmasq
-# Add custom resolver
-sudo mkdir -p /etc/resolver
-sudo tee /etc/resolver/site >/dev/null <<EOF
-nameserver 127.0.0.1
-EOF
-# Make sure you haven't broken your DNS.
-ping -c 1 www.google.com
-# Check that .site names work
-ping -c 1 iam.the.walrus.site
-```
-
-## Brew services
-
-Use `brew tap homebrew/services` then `brew services list` to manage services.
