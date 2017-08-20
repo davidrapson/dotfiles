@@ -49,16 +49,24 @@ brew install vim --override-system-vi
 brew tap homebrew/services
 
 # Common useful binaries
+brew install entr
+brew install fasd
+brew install htop
+brew install jq
+brew install rename
 brew install shellcheck
+brew install tree
+brew install watchman
+
+# Search tools
 brew install the_silver_searcher
 brew install ack
-brew install rename
-brew install htop
-brew install tree
-brew install fasd
-brew install entr
 brew install fzf
-brew install jq
+
+# Network tools
+brew install ngrep
+brew install httpie
+brew install httrack
 
 # Version control (Git)
 brew install git
@@ -66,13 +74,8 @@ brew install git-extras
 brew install diff-so-fancy
 # brew install bfg
 
-# Network tools
-brew install ngrep
-brew install httpie
-brew install httrack
-
 # Imaging tools
-# brew install imagemagick --with-webp --with-fontconfig
+# brew install graphicsmagick
 # brew install ffmpeg --with-libass --with-fontconfig
 # brew install giflossy
 
@@ -93,6 +96,8 @@ brew install httrack
 # npm install -g svgo uglify-js
 # npm install -g typescript source-map-explorer
 
+# Elm
+# brew cask install caskroom/cask/elm-platform
 
 # Scala
 # brew install sbt
@@ -122,9 +127,6 @@ brew install httrack
 
 # Elixir
 # brew install elixir
-
-# Elm
-# brew cask install caskroom/cask/elm-platform
 
 # Remove outdated versions from the cellar
 brew cleanup

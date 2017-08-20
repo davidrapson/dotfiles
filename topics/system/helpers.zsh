@@ -15,16 +15,6 @@ if (( $+commands[fasd] )); then
   alias j='fasd_cd -d'
 fi
 
-# Alias search to the installed command
-# The silver surfer (ag) -> ack -> grep
-if (( $+commands[ag] )) ; then
-  alias search='ag'
-elif (( $+commands[ack] )) ; then
-  alias search='ack'
-else
-  alias search='grep'
-fi
-
 if (( $+commands[tree] )) ; then
   alias ll='tree --dirsfirst -ChFupDaLg 1'
 else
