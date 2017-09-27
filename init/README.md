@@ -4,7 +4,7 @@
 ## Setup iTerm
 
 - Install [Hack](https://github.com/chrissimpkins/Hack) font
-- Install Solarized Dark Higher Contrast [iTerm colour schemes](https://github.com/bahlo/iterm-colors)
+- Install additional colour schemes from [iTerm colors](https://github.com/bahlo/iterm-colors)
 
 ## Install Xcode
 
