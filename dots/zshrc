@@ -52,11 +52,16 @@ export GEM_HOME="$HOME/.gems"
 PATH=$PATH:$GEM_HOME/bin;
 
 # Add coreutiles to PATH
-PATH=$PATH:$BREW_PREFIX/opt/coreutils/libexec/gnubin; export PATH
+PATH=$PATH:$BREW_PREFIX/opt/coreutils/libexec/gnubin;
 
 # Add dotfile binaries to PATH
-PATH="$ZSH/bin:$PATH"; export PATH
+PATH="$ZSH/bin:$PATH";
 
+if hash python3 2>/dev/null; then
+  PATH="$HOME/Library/Python/3.6/bin:$PATH";
+fi
+
+export PATH;
 
 #######################################
 # Topics
