@@ -16,6 +16,9 @@
     # Show the last commit
     last = log -1 HEAD --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
 
+    # recent branches by last commit date
+    recent = branch --sort=-committerdate
+
     # Get the current branch name (not so useful in itself, but used in other aliases)
     branch-name = "!git rev-parse --abbrev-ref HEAD"
 
@@ -102,12 +105,13 @@
 [help]
     autocorrect = 5
 [merge]
-    tool = opendiff
+	tool = opendiff
 [pull]
 	rebase = true
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
 	required = true
+	process = git-lfs filter-process
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 [push]
 	default = simple
