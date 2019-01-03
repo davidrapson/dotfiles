@@ -57,8 +57,17 @@ PATH=$PATH:$BREW_PREFIX/opt/coreutils/libexec/gnubin;
 # Add dotfile binaries to PATH
 PATH="$ZSH/bin:$PATH";
 
+# Add python binaries to path
 if hash python3 2>/dev/null; then
   PATH="$HOME/Library/Python/3.6/bin:$PATH";
+fi
+
+# Add go binaries to path
+# https://ahmadawais.com/install-go-lang-on-macos-with-homebrew/
+if hash go 2>/dev/null; then
+  export GOPATH="${HOME}/.go"
+  export GOROOT="$(brew --prefix golang)/libexec"
+  PATH="${GOPATH}/bin:${GOROOT}/bin:$PATH"
 fi
 
 export PATH;
