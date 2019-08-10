@@ -72,61 +72,6 @@ brew install httrack
 brew install git
 brew install git-extras
 brew install diff-so-fancy
-# brew install bfg
-
-# Imaging tools
-# brew install graphicsmagick
-# brew install ffmpeg --with-libass --with-fontconfig
-# brew install giflossy
-
-# ===============================================
-# Languages
-# ===============================================
-
-# Development environment
-# brew install nginx
-# brew install dnsmasq
-# brew install awscli
-# brew install heroku
-
-# JavaScript
-# https://github.com/creationix/nvm
-# brew install yarn --without-node
-# npm install -g np david
-# npm install -g svgo uglify-js
-# npm install -g typescript source-map-explorer
-
-# Elm
-# brew cask install caskroom/cask/elm-platform
-
-# Scala
-# brew install sbt
-# brew install scala
-# brew install typesafe-activator
-
-# Python
-# brew install python
-# brew install bpython
-# pip install --upgrade pip setuptools wheel virtualenv
-
-# Ruby
-# brew install ruby
-# If doing more than casual ruby:
-# brew install rbenv
-# brew install rbenv-gem-rehash
-# brew install ruby-build
-
-# Go
-# brew install go
-
-# Haskell
-# brew cask install haskell-platform
-
-# Clojure
-# brew install leiningen
-
-# Elixir
-# brew install elixir
 
 # Remove outdated versions from the cellar
 brew cleanup
