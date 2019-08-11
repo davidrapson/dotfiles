@@ -50,7 +50,7 @@ brew tap homebrew/services
 
 # Common useful binaries
 brew install entr
-brew install fasd
+brew install autojump
 brew install htop
 brew install jq
 brew install rename

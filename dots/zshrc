@@ -100,17 +100,11 @@ function() {
 }
 
 #######################################
-# FASD
+# Autojump
 #######################################
 
 function () {
-  if (( $+commands[fasd] )); then
-    local fasd_cache="$HOME/.fasd-init"
-    if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-      fasd --init auto >| "$fasd_cache"
-    fi
-    source "$fasd_cache"
-  fi
+  [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 }
 
 #######################################
