@@ -1,8 +1,8 @@
 [core]
     autocrlf = input
     editor = vim
-    excludesfile = ~/.gitignore_global
     quotepath = false
+    pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
     # Stash all including unstaged
     stash-all = stash save --include-untracked
@@ -72,13 +72,6 @@
 
     # Undo your last commit, but don't throw away your changes
     undo = reset --soft HEAD^
-
-    # git-wtf
-    wtf = !"git-wtf"
-
-    # diff-so-fancy
-    dsf = "!git diff --color $@ | diff-so-fancy"
-
 [color]
     ui = true
 [color "branch"]
