@@ -19,7 +19,11 @@ fi
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade --all
+brew upgrade
+
+# Manage services with `brew services`
+# Small wrapper around launchctl
+brew tap homebrew/services
 
 # ===============================================
 # Utilities
@@ -27,26 +31,15 @@ brew upgrade --all
 
 # Install GNU core utilities (those that come with OS X are outdated).
 brew install coreutils
-if [ ! -L /usr/local/bin/gsha256sum ]; then
-  sudo ln -sf /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
-fi
-# Install some other useful utilities like `sponge`.
-brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
-# Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
 # GRC colorizes unix tools
 brew install grc
 
 # Install more recent versions of some OS X tools.
 brew install zsh
 brew install zsh-completions
-brew install vim --override-system-vi
-
-# Manage services with `brew services`
-# Small wrapper around launchctl
-brew tap homebrew/services
+brew install vim
 
 # Common useful binaries
 brew install entr
@@ -72,6 +65,10 @@ brew install httrack
 brew install git
 brew install git-extras
 brew install diff-so-fancy
+
+# Ruby
+brew install rbenv
+brew install ruby-build
 
 # Remove outdated versions from the cellar
 brew cleanup
