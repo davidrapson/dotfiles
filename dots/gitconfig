@@ -44,9 +44,6 @@
     # Show merge conflicts
     conflicts = diff --name-only --diff-filter=U
 
-    # Interactively rebase all the commits on the current branch
-    rebase-branch = "!git rebase -i `git merge-base master HEAD`"
-
     up = !git fetch origin && git rebase origin/master
 
     # Unstage any files that have been added to the staging area

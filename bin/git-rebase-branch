@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Interactively rebase all the commits on the current branch
+git rebase -i `git merge-base ${1:-master} HEAD`
