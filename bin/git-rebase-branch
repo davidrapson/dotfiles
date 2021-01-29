@@ -1,4 +1,9 @@
 #!/bin/bash
 
 # Interactively rebase all the commits on the current branch
-git rebase -i `git merge-base ${1:-master} HEAD`
+
+if [ -z "$1" ]; then
+  echo "Provide a target branch name"
+else
+  git rebase -i `git merge-base ${1:-master} HEAD`
+fi
