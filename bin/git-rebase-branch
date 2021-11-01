@@ -5,5 +5,5 @@
 if [ -z "$1" ]; then
   echo "Provide a target branch name"
 else
-  git rebase -i --autosquash `git merge-base ${1:-master} HEAD`
+  git rebase -i `git merge-base ${1:-master} HEAD`
 fi

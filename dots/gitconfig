@@ -99,3 +99,5 @@
 	smudge = git-lfs smudge -- %f
 [push]
 	default = simple
+[rebase]
+	autosquash = true
