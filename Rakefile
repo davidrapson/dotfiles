@@ -41,13 +41,6 @@ task :dotfiles do
   end
 end
 
-task :pure do
-  header "Installing Pure prompt"
-  zfunctions = File.expand_path("/usr/local/share/zsh/site-functions/")
-  relative_symlink "pure/pure.zsh", File.join(zfunctions, "prompt_pure_setup")
-  relative_symlink "pure/async.zsh", File.join(zfunctions, "async")
-end
-
-task :default => [ :dotfiles, :pure ] do
+task :default => [ :dotfiles ] do
   puts "\nAll Done."
 end

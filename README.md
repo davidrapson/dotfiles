@@ -9,7 +9,6 @@
 ## Setup
 
 - `git clone git://github.com/davidrapson/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
-- `git submodule update --init`
 - `./brews`
 - `rake`
 
