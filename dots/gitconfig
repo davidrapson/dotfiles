@@ -3,6 +3,7 @@
     editor = vim
     quotepath = false
     pager = diff-so-fancy | less --tabs=4 -RFX
+    excludesfile = ~/.gitignore_global
 [alias]
     # Stash all including unstaged
     stash-all = stash save --include-untracked
