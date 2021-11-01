@@ -86,10 +86,12 @@ function() {
 
 function () {
   # Autojump
-  [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+  local autojump_path=/usr/local/etc/profile.d/autojump.sh
+  [ -f $autojump_path ] && . $autojump_path
 
   # brew install zsh-syntax-highlighting
-  test -e "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  local zsh_syntax_highlighting_path=/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  [ -f $zsh_syntax_highlighting_path ] && . $zsh_syntax_highlighting_path
 
   # NVM
   export NVM_DIR="$HOME/.nvm"
