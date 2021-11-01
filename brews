@@ -26,7 +26,7 @@ brew upgrade
 brew tap homebrew/services
 
 # ===============================================
-# Utilities
+# Brews
 # ===============================================
 
 # Install GNU core utilities (those that come with OS X are outdated).
@@ -41,6 +41,9 @@ brew install zsh
 brew install zsh-completions
 brew install zsh-syntax-highlighting
 brew install vim
+
+# Pure prompt
+brew install pure
 
 # Common useful binaries
 brew install entr
