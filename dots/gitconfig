@@ -1,92 +1,85 @@
 [core]
-    autocrlf = input
-    editor = vim
-    quotepath = false
-    pager = diff-so-fancy | less --tabs=4 -RFX
-    excludesfile = ~/.gitignore_global
+  autocrlf = input
+  editor = vim
+  quotepath = false
+  pager = diff-so-fancy | less --tabs=4 -RFX
+  excludesfile = ~/.gitignore_global
 [alias]
-    # Stash all including unstaged
-    stash-all = stash save --include-untracked
+  # Stash all including unstaged
+  stash-all = stash save --include-untracked
 
-    # Reset permissions to git defaults
-    reset-permissions = "!git diff -p | grep -E \"^(diff|old mode|new mode)\" | sed -e \"s/^old/NEW/;s/^new/old/;s/^NEW/new/\" | git apply"
+  # Tar & Gzip the git repo
+  gzip = !git archive HEAD | gzip > $PWD.tar.gz
 
-    # Tar & Gzip the git repo
-    gzip = !git archive HEAD | gzip > $PWD.tar.gz
+  # Show the last commit
+  last = log -1 HEAD --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
 
-    # Show the last commit
-    last = log -1 HEAD --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+  # recent branches by last commit date
+  recent = branch --sort=-committerdate
 
-    # recent branches by last commit date
-    recent = branch --sort=-committerdate
+  # Get the current branch name (not so useful in itself, but used in other aliases)
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
 
-    # Get the current branch name (not so useful in itself, but used in other aliases)
-    branch-name = "!git rev-parse --abbrev-ref HEAD"
+  # Push the current branch to the remote "origin", and set it to track the upstream branch
+  publish = "!git push -u origin $(git branch-name)"
 
-    # Push the current branch to the remote "origin", and set it to track the upstream branch
-    publish = "!git push -u origin $(git branch-name)"
+  # Delete the remote version of the current branch
+  unpublish = "!git push origin :$(git branch-name)"
 
-    # Delete the remote version of the current branch
-    unpublish = "!git push origin :$(git branch-name)"
+  # Given a merge commit, find the span of commits that exist(ed) on that
+  # branch. Again, not so useful in itself, but used by other aliases.
+  merge-span = "!f() { echo $(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f1)$1$(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f2); }; f"
 
-    # Given a merge commit, find the span of commits that exist(ed) on that
-    # branch. Again, not so useful in itself, but used by other aliases.
-    merge-span = "!f() { echo $(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f1)$1$(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f2); }; f"
+  # Find the commits that were introduced by a merge
+  merge-log = "!git log `git merge-span .. $1`"
 
-    # Find the commits that were introduced by a merge
-    merge-log = "!git log `git merge-span .. $1`"
+  # Show the changes that were introduced by a merge
+  merge-diff = "!git diff `git merge-span ... $1`"
 
-    # Show the changes that were introduced by a merge
-    merge-diff = "!git diff `git merge-span ... $1`"
+  # As above, but in your difftool
+  merge-difftool = "!git difftool `git merge-span ... $1`"
 
-    # As above, but in your difftool
-    merge-difftool = "!git difftool `git merge-span ... $1`"
+  # Show merge conflicts
+  conflicts = diff --name-only --diff-filter=U
 
-    # Show merge conflicts
-    conflicts = diff --name-only --diff-filter=U
+  up = !git fetch origin && git rebase origin/master
 
-    up = !git fetch origin && git rebase origin/master
+  # Unstage any files that have been added to the staging area
+  unstage = reset HEAD --
 
-    # Unstage any files that have been added to the staging area
-    unstage = reset HEAD --
+  # Show changes that have been staged
+  diffc = diff --cached
 
-    # Show changes that have been staged
-    diffc = diff --cached
+  # Mark a file as "assume unchanged", which means that Git will treat it
+  # as though there are no changes to it even if there are. Useful for
+  # temporary changes to tracked files
+  assume = update-index --assume-unchanged
 
-    # Mark a file as "assume unchanged", which means that Git will treat it
-    # as though there are no changes to it even if there are. Useful for
-    # temporary changes to tracked files
-    assume = update-index --assume-unchanged
+  # Reverse the above
+  unassume = update-index --no-assume-unchanged
 
-    # Reverse the above
-    unassume = update-index --no-assume-unchanged
+  # Show the files that are currently assume-unchanged
+  assumed = "!git ls-files -v | grep ^h | cut -c 3-"
 
-    # Show the files that are currently assume-unchanged
-    assumed = "!git ls-files -v | grep ^h | cut -c 3-"
-
-    # Delete any branches that have been merged into master
-    # See also: https://gist.github.com/robmiller/5133264
-    delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
-
-    # Undo your last commit, but don't throw away your changes
-    undo = reset --soft HEAD^
+  # Undo your last commit, but don't throw away your changes
+  undo = reset --soft HEAD^
 [color]
-    ui = true
+  ui = true
 [color "branch"]
-    current = yellow black
-    local = yellow
-    remote = magenta
+  current = yellow black
+  local = yellow
+  remote = magenta
 [color "diff"]
-    frag = magenta bold
-    meta = yellow bold
-    new = green reverse
-    old = red reverse
-    whitespace = white reverse
+  frag = magenta bold
+  meta = yellow bold
+  new = green reverse
+  old = red reverse
+  whitespace = white reverse
 [color "status"]
-    added = yellow
-    branch = magenta
-    changed = green
-    untracked = cyan reverse
+  added = yellow
+  branch = magenta
+  changed = green
+  untracked = cyan reverse
 [difftool]
     prompt = false
 [diff]
