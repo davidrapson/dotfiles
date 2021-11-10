@@ -35,7 +35,7 @@ prompt pure
 
 # GRC colorizes unix tools
 if (( $+commands[grc] )); then
-  source "$BREW_PREFIX/etc/grc.bashrc"
+  source "$BREW_PREFIX/etc/grc.zsh"
 fi
 
 #######################################
