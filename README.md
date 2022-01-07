@@ -8,7 +8,7 @@
 
 ## Setup
 
-- `git clone git://github.com/davidrapson/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
+- `git clone https://github.com/davidrapson/dotfiles.git ~/.dotfiles && cd ~/.dotfiles`
 - `./brews`
 - `rake`
 
