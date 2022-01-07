@@ -69,10 +69,10 @@ brew install httrack
 brew install git
 brew install git-extras
 brew install diff-so-fancy
+brew install gh
 
 # Ruby
 brew install rbenv
-brew install ruby-build
 
 # Remove outdated versions from the cellar
 brew cleanup
