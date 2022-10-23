@@ -45,9 +45,6 @@ fi
 # Add homebrew bins to path
 PATH=$BREW_PREFIX/bin:$BREW_PREFIX/sbin:$PATH;
 
-# Add coreutiles to PATH
-PATH=$PATH:$BREW_PREFIX/opt/coreutils/libexec/gnubin;
-
 # Add dotfile binaries to PATH
 PATH="$ZSH/bin:$PATH";
 
