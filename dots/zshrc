@@ -23,13 +23,6 @@ unsetopt RM_STAR_SILENT
 VISUAL=vim; export VISUAL
 
 #######################################
-# Prompt
-#######################################
-
-autoload -U promptinit && promptinit
-prompt pure
-
-#######################################
 # GRC
 #######################################
 
@@ -49,6 +42,15 @@ PATH=$BREW_PREFIX/bin:$BREW_PREFIX/sbin:$PATH;
 PATH="$ZSH/bin:$PATH";
 
 export PATH;
+
+#######################################
+# Prompt
+#######################################
+
+fpath=($BREW_PREFIX/share/zsh/site-functions $fpath)
+
+autoload -U promptinit && promptinit
+prompt pure
 
 #######################################
 # Topics
