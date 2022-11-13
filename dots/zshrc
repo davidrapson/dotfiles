@@ -85,11 +85,11 @@ function() {
 
 function () {
   # Autojump
-  local autojump_path=/usr/local/etc/profile.d/autojump.sh
+  local autojump_path="$BREW_PREFIX/etc/profile.d/autojump.sh"
   [ -f $autojump_path ] && . $autojump_path
 
   # brew install zsh-syntax-highlighting
-  local zsh_syntax_highlighting_path=/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  local zsh_syntax_highlighting_path="$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   [ -f $zsh_syntax_highlighting_path ] && . $zsh_syntax_highlighting_path
 
   # NVM
