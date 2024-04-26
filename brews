@@ -39,6 +39,7 @@ brew install vim
 brew install pure
 
 # Common useful binaries
+brew install bat
 brew install entr
 brew install autojump
 brew install htop
@@ -49,6 +50,7 @@ brew install tree
 brew install watchman
 
 # Search tools
+brew install ripgrep
 brew install the_silver_searcher
 brew install ack
 brew install fzf
@@ -60,6 +62,7 @@ brew install httrack
 
 # Version control (Git)
 brew install git
+brew install git-delta
 brew install git-extras
 brew install diff-so-fancy
 brew install gh
