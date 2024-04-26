@@ -23,15 +23,6 @@ unsetopt RM_STAR_SILENT
 VISUAL=vim; export VISUAL
 
 #######################################
-# GRC
-#######################################
-
-# GRC colorizes unix tools
-if (( $+commands[grc] )); then
-  source "$BREW_PREFIX/etc/grc.zsh"
-fi
-
-#######################################
 # Path
 #######################################
 
