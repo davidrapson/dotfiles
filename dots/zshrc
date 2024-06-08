@@ -12,9 +12,6 @@ BREW_PREFIX=$(brew --prefix); export BREW_PREFIX
 # Use 256 colours
 TERM=xterm-256color
 
-# Helps with builds
-CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"; export CONFIGURE_ARGS
-
 # Ask before executing rm with a star rm folder/*.
 # https://github.com/sindresorhus/guides/blob/master/how-not-to-rm-yourself.md
 unsetopt RM_STAR_SILENT
