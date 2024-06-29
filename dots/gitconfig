@@ -4,6 +4,8 @@
   quotepath = false
   pager = diff-so-fancy | less --tabs=4 -RFX
   excludesfile = ~/.gitignore_global
+[init]
+  defaultBranch = main
 [alias]
   # Stash all including unstaged
   stash-all = stash save --include-untracked
@@ -42,8 +44,6 @@
   # Show merge conflicts
   conflicts = diff --name-only --diff-filter=U
 
-  up = !git fetch origin && git rebase origin/master
-
   # Unstage any files that have been added to the staging area
   unstage = reset HEAD --
 
@@ -81,23 +81,23 @@
   changed = green
   untracked = cyan reverse
 [difftool]
-    prompt = false
+  prompt = false
 [diff]
-    algorithm = patience
+  algorithm = patience
 [credential]
-    helper = osxkeychain
+  helper = osxkeychain
 [help]
-    autocorrect = 5
+  autocorrect = 5
 [merge]
-	tool = opendiff
+  tool = opendiff
 [pull]
-	rebase = true
-[filter "lfs"]
-	required = true
-	process = git-lfs filter-process
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+  rebase = true
 [push]
-	default = simple
+  default = simple
 [rebase]
-	autosquash = true
+  autosquash = true
+[filter "lfs"]
+  required = true
+  process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
