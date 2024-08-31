@@ -16,9 +16,6 @@ TERM=xterm-256color
 # https://github.com/sindresorhus/guides/blob/master/how-not-to-rm-yourself.md
 unsetopt RM_STAR_SILENT
 
-# Always use vim as the visual editor
-VISUAL=vim; export VISUAL
-
 #######################################
 # Path
 #######################################
@@ -47,7 +44,7 @@ prompt pure
 function() {
   # all of our zsh files
   typeset -U config_files
-  local config_files=($HOME/.dotfiles/topics/**/*.zsh)
+  local config_files=($ZSH/topics/**/*.zsh)
 
   # Load everything but the completion files
   for file in ${config_files:#*/completion.zsh}; do
@@ -74,19 +71,29 @@ function() {
 function () {
   # Autojump
   local autojump_path="$BREW_PREFIX/etc/profile.d/autojump.sh"
-  [ -f $autojump_path ] && . $autojump_path
+  if test -f $autojump_path; then
+    source $autojump_path
+  fi
 
-  # brew install zsh-syntax-highlighting
-  local zsh_syntax_highlighting_path="$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-  [ -f $zsh_syntax_highlighting_path ] && . $zsh_syntax_highlighting_path
+  # Set up fzf key bindings and fuzzy completion
+  if which fzf > /dev/null; then
+    source <(fzf --zsh)
+  fi
 
   # NVM
   export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
+  if test -s "$NVM_DIR/nvm.sh"; then
+    source "$NVM_DIR/nvm.sh"
+  fi
 
   # rbenv
   if which rbenv > /dev/null; then
     eval "$(rbenv init -)";
+  fi
+
+  # brew install zsh-syntax-highlighting
+  local zsh_syntax_highlighting_path="$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+  if test -f $zsh_syntax_highlighting_path; then
+    source $zsh_syntax_highlighting_path;
   fi
 }
