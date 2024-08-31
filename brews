@@ -8,11 +8,10 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Check for Homebrew,
-# Install if we don't have it
+# Install Homebrew if we don't have it
 if test ! "$(which brew)"; then
   echo "Installing homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Make sure we’re using the latest Homebrew
@@ -32,33 +31,22 @@ brew tap homebrew/services
 # Install more recent versions of some OS X tools.
 brew install zsh
 brew install zsh-completions
-brew install zsh-syntax-highlighting
 brew install vim
 
 # Pure prompt
 brew install pure
 
-# Common useful binaries
-brew install bat
-brew install entr
+# Common utilities
 brew install autojump
 brew install htop
-brew install jq
-brew install rename
-brew install shellcheck
 brew install tree
-brew install watchman
-
-# Search tools
-brew install ripgrep
-brew install the_silver_searcher
 brew install ack
+brew install the_silver_searcher
 brew install fzf
-
-# Network tools
-brew install ngrep
+brew install entr
 brew install httpie
-brew install httrack
+brew install jq
+brew install yq
 
 # Version control (Git)
 brew install git
@@ -66,9 +54,6 @@ brew install git-delta
 brew install git-extras
 brew install diff-so-fancy
 brew install gh
-
-# Ruby
-brew install rbenv
 
 # Remove outdated versions from the cellar
 brew cleanup
