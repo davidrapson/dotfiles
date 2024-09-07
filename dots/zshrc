@@ -1,13 +1,5 @@
-#######################################
-# ZSH
-#######################################
-
-# shortcut to this dotfiles path is $ZSH
+# Set up a shortcut to this dotfiles path
 ZSH=$HOME/.dotfiles; export ZSH
-
-# Cache brew prefix
-# Calling in a subshel each time is very slow.
-BREW_PREFIX=$(brew --prefix); export BREW_PREFIX
 
 # Use 256 colours
 TERM=xterm-256color
@@ -16,84 +8,43 @@ TERM=xterm-256color
 # https://github.com/sindresorhus/guides/blob/master/how-not-to-rm-yourself.md
 unsetopt RM_STAR_SILENT
 
-#######################################
-# Path
-#######################################
+# Conditionally set up homebrew config (macOS only)
+if which brew > /dev/null; then
+  # site-functions required for pure when using homebrew
+  fpath+=($HOMEBREW_PREFIX/share/zsh/site-functions)
+  fpath+=($HOMEBREW_PREFIX/share/zsh-completions)
+fi
 
-# Add homebrew bins to path
-PATH=$BREW_PREFIX/bin:$BREW_PREFIX/sbin:$PATH;
+# Check if we've installed pure manually
+if test -d $HOME/.zsh/pure; then
+  fpath+=($HOME/.zsh/pure)
+fi
 
-# Add dotfile binaries to PATH
-PATH="$ZSH/bin:$PATH";
-
-export PATH;
-
-#######################################
-# Prompt
-#######################################
-
-fpath=($BREW_PREFIX/share/zsh/site-functions $fpath)
-
+# Initialise the pure prompt
 autoload -U promptinit && promptinit
 prompt pure
 
-#######################################
-# Topics
-#######################################
+# Initialize autocompletion
+autoload -U compinit
+compinit
 
-function() {
-  # all of our zsh files
-  typeset -U config_files
-  local config_files=($ZSH/topics/**/*.zsh)
+# matches case insensitive for lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-  # Load everything but the completion files
-  for file in ${config_files:#*/completion.zsh}; do
-    source $file
-  done
+# pasting with tabs doesn't perform completion
+zstyle ':completion:*' insert-tab pending
 
-  # Completions
-  fpath=($BREW_PREFIX/share/zsh-completions $fpath)
+# Add dotfile binaries to our $PATH
+PATH="$ZSH/bin:$PATH";
 
-  # Initialize autocompletion
-  autoload -U compinit
-  compinit
+# all of our zsh files
+typeset -U config_files
+local config_files=($ZSH/topics/**/*.zsh)
 
-  # Load every completion after autocomplete loads
-  for file in ${(M)config_files:#*/completion.zsh}; do
-    source $file
-  done
-}
+# Source all topic config files
+for file in $config_files; do
+  source $file
+done
 
-#######################################
-# Sources
-#######################################
-
-function () {
-  # Autojump
-  local autojump_path="$BREW_PREFIX/etc/profile.d/autojump.sh"
-  if test -f $autojump_path; then
-    source $autojump_path
-  fi
-
-  # Set up fzf key bindings and fuzzy completion
-  if which fzf > /dev/null; then
-    source <(fzf --zsh)
-  fi
-
-  # NVM
-  export NVM_DIR="$HOME/.nvm"
-  if test -s "$NVM_DIR/nvm.sh"; then
-    source "$NVM_DIR/nvm.sh"
-  fi
-
-  # rbenv
-  if which rbenv > /dev/null; then
-    eval "$(rbenv init -)";
-  fi
-
-  # brew install zsh-syntax-highlighting
-  local zsh_syntax_highlighting_path="$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-  if test -f $zsh_syntax_highlighting_path; then
-    source $zsh_syntax_highlighting_path;
-  fi
-}
+# Export any $PATH modifications
+export PATH;

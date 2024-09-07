@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+echo_task() {
+  printf "\033[0;34m--> %s\033[0m\n" "$*"
+}
+
+error() {
+  printf "\033[0;31m%s\033[0m\n" "$*" >&2
+  exit 1
+}
+
+echo_task "Setting up dotfiles"
+
+if [[ $(uname -s) == "Darwin" ]]; then
+
+  echo_task "Installing dependencies with Homebrew"
+
+  brew_install_if_missing() {
+    echo_task "Checking for $1"
+    if command -v "$1" >/dev/null || brew list "$1" >/dev/null; then
+      echo_task "$1 is already installed"
+    else
+      brew install $1
+    fi
+  }
+
+  # Install minimal dependencies for dotfiles to run
+  brew_install_if_missing zsh
+  brew_install_if_missing zsh-completions
+  brew_install_if_missing coreutils
+  brew_install_if_missing git
+  brew_install_if_missing vim
+
+  # Install pure prompt
+  brew_install_if_missing pure
+
+elif test -f /etc/debian_version; then
+
+  echo_task "Installing dependencies with apt"
+
+  apt_install_if_missing() {
+    echo_task "Checking for $1"
+    if command -v "$1" >/dev/null; then
+      echo_task "$1 is already installed"
+    else
+      sudo apt install -y $1
+    fi
+  }
+
+  # Install minimal dependencies for dotfiles to run
+  apt_install_if_missing zsh
+  apt_install_if_missing git
+  apt_install_if_missing vim
+
+  # Install pure prompt
+  # https://github.com/sindresorhus/pure?tab=readme-ov-file#manually
+  echo_task "Checking for pure"
+  if test -d $HOME/.zsh/pure; then
+    echo_task "pure is already installed"
+  else
+    mkdir -p "$HOME/.zsh"
+    git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+  fi
+
+else
+  error 'Unsupported environment. Requires Homebrew/macOS or Debian/apt.';
+fi
+
+echo_task "Setting up symlinks"
+for filename in $HOME/.dotfiles/dots/*; do
+  [ -e "$filename" ] || continue
+
+  echo_task "Installing symlink for $filename"
+
+  ln -sf "$filename" "$HOME/.$(basename $filename)"
+done
+
+echo_task "All done!"

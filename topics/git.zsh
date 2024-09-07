@@ -13,7 +13,7 @@ alias gcar='git commit --amend --reset-author'
 alias gp='git add --patch'
 alias gcp='git cherry-pick'
 alias gst='git status --branch --short'
-alias gl='git log --pretty="format:%C(cyan)%h %d%C(reset) %s %C(black) %an %ar%C(reset)" --graph'
+alias gl='git log --pretty="format:%C(bold)%h %d%C(reset) %s %C(dim) %an %ar%C(reset)" --graph'
 
 # Ungit
 alias ungit="find . -name '.git' -exec rm -rf {} \;"

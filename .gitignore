@@ -1,4 +1,5 @@
-*.sw*
+# Ignore private topics (for local helpers and environment variables)
 *private*
-.DS_Store
-.npmrc
+
+# Ignore .local suffixed files for local overrides
+*.local*
