@@ -29,11 +29,28 @@ function take() {
   cd $1
 }
 
-function follow() {
-  less +F $1
-}
-
 # Pretty print $PROFILE
 function pprofile() {
   echo -e ${PATH//:/\\n}
+}
+
+function portcheck() {
+   sudo lsof -i :${1:-80}
+}
+
+function ips() {
+  # Show all interface IPs
+  ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'
+  # Show public ip
+  dig +short myip.opendns.com @resolver1.opendns.com
+}
+
+# All the dig info
+function digga() {
+  dig +nocmd "$1" any +multiline +noall +answer
+}
+
+# Flush Directory Service cache
+function flush() {
+  sudo killall -HUP mDNSResponder
 }

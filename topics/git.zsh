@@ -15,9 +15,6 @@ alias gcp='git cherry-pick'
 alias gst='git status --branch --short'
 alias gl='git log --pretty="format:%C(bold)%h %d%C(reset) %s %C(dim) %an %ar%C(reset)" --graph'
 
-# Ungit
-alias ungit="find . -name '.git' -exec rm -rf {} \;"
-
 # Will return the current branch name
 # Usage example: git pull origin $(current_branch)
 function current_branch() {
