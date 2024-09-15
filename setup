@@ -64,6 +64,33 @@ elif test -f /etc/debian_version; then
     git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
   fi
 
+elif test -f /etc/fedora-release; then
+  echo_task "Installing dependencies with dnf"
+
+  dnf_install_if_missing() {
+    echo_task "Checking for $1"
+    if command -v "$1" >/dev/null; then
+      echo_task "$1 is already installed"
+    else
+      sudo dnf install $1
+    fi
+  }
+
+  # Install minimal dependencies for dotfiles to run
+  dnf_install_if_missing zsh
+  dnf_install_if_missing git
+  dnf_install_if_missing vim
+
+  # Install pure prompt
+  # https://github.com/sindresorhus/pure?tab=readme-ov-file#manually
+  echo_task "Checking for pure"
+  if test -d $HOME/.zsh/pure; then
+    echo_task "pure is already installed"
+  else
+    mkdir -p "$HOME/.zsh"
+    git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+  fi
+
 else
   error 'Unsupported environment. Requires Homebrew/macOS or Debian/apt.';
 fi

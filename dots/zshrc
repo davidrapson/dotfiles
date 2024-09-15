@@ -26,7 +26,7 @@ setopt inc_append_history # add commands to HISTFILE in order of execution
 setopt share_history # share command history data
 
 # Conditionally set up homebrew config (macOS only)
-if which brew > /dev/null; then
+if which brew > /dev/null 2>&1; then
   # site-functions required for pure when using homebrew
   fpath+=($HOMEBREW_PREFIX/share/zsh/site-functions)
   fpath+=($HOMEBREW_PREFIX/share/zsh-completions)

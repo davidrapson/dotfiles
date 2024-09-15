@@ -4,13 +4,13 @@ My personal dotfiles, based around zsh.
 
 ## Goals
 
-These dotfiles are designed to support the main systems I use (macOS, Ubuntu, WSL, and Raspberry Pi OS) and cover an absolutely minimal set up optimised for simplicity and startup speed.
+These dotfiles are designed to support the main systems I use (macOS, Fedora, and Raspberry Pi OS) and cover an absolutely minimal set up optimised for simplicity and startup speed.
 
 ## Requirements
 
 - ZSH as your default shell
 - Git for cloning the repository and some dependencies
-- Homebrew (macOS) or apt (Debian)
+- Homebrew (macOS), dnf (Fedora), or apt (Debian)
 
 ## Setup
 
